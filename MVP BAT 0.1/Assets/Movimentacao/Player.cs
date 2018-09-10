@@ -5,8 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     private Rigidbody2D rb;
+
     public static Vector3 position;
     public static Vector3 vel;
+
+    public float vida;
     public float Vel;
     public float RunVel;
     public float maxVel;
@@ -14,6 +17,7 @@ public class Player : MonoBehaviour {
     public float skill1CoolDown;
     public float skill2CoolDown;
     public float skill3CoolDown;
+
     private float skill1cdt;
     private float skill2cdt;
     private float skill3cdt;
@@ -37,6 +41,7 @@ public class Player : MonoBehaviour {
 	void Update () {
         position = transform.position;
         vel = rb.velocity;
+        if (vida <= 0) enabled = false;
 	}
 
     void FixedUpdate()
@@ -75,19 +80,36 @@ public class Player : MonoBehaviour {
 
         if (Input.GetMouseButton(0) && Time.time > skill1cdt + skill1CoolDown){
             skill1cdt = Time.time;
-            skills.Ice_Block((Vector2)transform.position + dir, dir, 3, 10);
+            skills.Ice_Block((Vector2)transform.position + dir, dir, 3, 10, true);
         }
 
         if (Input.GetMouseButton(1) && Time.time > skill2cdt + skill2CoolDown)
         {
             skill2cdt = Time.time;
-            skills.Chain_Lightning((Vector2)transform.position, dir, 15, 10);
+            skills.Chain_Lightning((Vector2)transform.position, dir, 15, 10, true);
         }
 
         if (Input.GetMouseButton(2) && Time.time > skill3cdt + skill3CoolDown)
         {
             skill3cdt = Time.time;
-            skills.Crippling_Oil((Vector2)transform.position, dir, 15, 10);
+            skills.Crippling_Oil((Vector2)transform.position, dir, 15, 10, true);
+        }
+    }
+
+    public void descongelar(float tempo)
+    {
+        Invoke("descongelar2", tempo);
+    }
+
+    public void descongelar2()
+    {
+        enabled = true;
+        foreach (Transform t in transform)
+        {
+            if (t.tag == "Gelo")
+            {
+                Destroy(t.gameObject);
+            }
         }
     }
 }

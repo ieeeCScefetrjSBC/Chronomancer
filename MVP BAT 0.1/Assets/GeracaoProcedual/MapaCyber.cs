@@ -30,6 +30,9 @@ public class MapaCyber : MonoBehaviour
     [SerializeField]
     private GameObject paredeH;
 
+    [SerializeField]
+    private GameObject[] inimigos;
+
 
     public bool mantem;
 
@@ -52,6 +55,7 @@ public class MapaCyber : MonoBehaviour
                         x = i;
                         y = j;
 
+                        
 
                         if ((x % 3 == 0) && (y % 3 == 0) && (Random.value < probSala)) sala.Add(this) ;
                     }
@@ -62,7 +66,9 @@ public class MapaCyber : MonoBehaviour
                         MatMapaCyber[i].Add(M);
                         M.x = i;
                         M.y = j;
-  
+
+                        M.inimigos = inimigos;
+
                         M.paredeH = paredeH;
                         M.paredeV = paredeV;
 
@@ -141,5 +147,17 @@ public class MapaCyber : MonoBehaviour
 
     void Update()
     {
+        if(this != sala[0])
+        {
+            if (Random.value < 0.4f)
+            {
+                Instantiate(inimigos[(int) Mathf.Round(Random.value * (inimigos.Length - 1))], transform.position + Vector3.back, Quaternion.identity);
+            }
+
+        }
+
+        Destroy(this);
     }
+
+    
 }

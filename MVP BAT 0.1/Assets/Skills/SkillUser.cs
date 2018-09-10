@@ -5,6 +5,9 @@ using UnityEngine;
 public class SkillUser : MonoBehaviour {
 
     public readonly string[] skills = { "Meteor", "Ice_Block", "Heavy_Rain", "Chain_Lightning", "Crippling_Oil" };
+    private static GameObject GeloG;
+    private static GameObject OleoG;
+    private static GameObject AreaIceBlockG;
 
     [SerializeField]
     private GameObject Gelo;
@@ -13,15 +16,24 @@ public class SkillUser : MonoBehaviour {
     [SerializeField]
     private GameObject AreaIceBlock;
 
-    void Start () {
-		
-	}
+    void Awake() {
+        if (Gelo != null && GeloG == null) GeloG = Gelo;
+        if (Oleo != null && OleoG == null) OleoG = Oleo;
+        if (AreaIceBlock != null && AreaIceBlockG == null) AreaIceBlockG = AreaIceBlock;
+
+    }
+
+    void Start(){
+        if (Gelo == null) Gelo = GeloG;
+        if (Oleo == null) Oleo = OleoG;
+        if (AreaIceBlock == null) AreaIceBlock = AreaIceBlockG;
+    }
 	
 	void Update () {
 		
 	}
 
-    public void Ice_Block_Raycast(Vector2 pos, Vector2 dir,float tempo, float dano) {
+    public void Ice_Block_Raycast(Vector2 pos, Vector2 dir,float tempo, float dano, bool pl) {
         RaycastHit2D r = Physics2D.Raycast(pos, dir);
         if (r.transform != null){
             Quimica qui = r.transform.GetComponent<Quimica>();
@@ -33,7 +45,7 @@ public class SkillUser : MonoBehaviour {
                 b.constraints = RigidbodyConstraints2D.FreezeAll;
                 b.velocity = Vector2.zero;
                 b.angularVelocity = 0;
-                Instantiate(Gelo, r.transform);
+                Instantiate(GeloG, r.transform);
                 i.descongelar(tempo);
 
 
@@ -42,17 +54,19 @@ public class SkillUser : MonoBehaviour {
         }
     }
 
-    public void Ice_Block(Vector2 pos, Vector2 dir, float tempo, float dano)
+    public void Ice_Block(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
-        GameObject g = Instantiate(AreaIceBlock, transform.position + 15 * ((Vector3) dir), Quaternion.identity);
+
+        GameObject g = Instantiate(AreaIceBlockG, transform.position + 15 * ((Vector3) dir), Quaternion.identity);
         IceBlockRegion r = g.GetComponent<IceBlockRegion>();
-        r.Gelo = Gelo;
+        r.Gelo = GeloG;
         r.tempo = tempo;
         r.dano = dano;
+        r.pl = pl;
         r.Invoke("Finish", 0.5f);
     }
 
-    public void Chain_Lightning(Vector2 pos, Vector2 dir, float tempo, float dano)
+    public void Chain_Lightning(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
         RaycastHit2D r = Physics2D.Raycast(pos, dir);
         //Debug.Log(r.transform.name);
@@ -71,8 +85,8 @@ public class SkillUser : MonoBehaviour {
         }
     }
 
-    public void Crippling_Oil(Vector2 pos, Vector2 dir, float tempo, float dano)
+    public void Crippling_Oil(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
-        Instantiate(Oleo, transform.position + 15*((Vector3)dir), Quaternion.identity);
+        Instantiate(OleoG, transform.position + 15*((Vector3)dir), Quaternion.identity);
     }
 }
