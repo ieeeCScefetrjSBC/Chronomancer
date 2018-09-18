@@ -6,7 +6,7 @@ using UnityEngine;
 
 struct Edge
 {
-    List<Vector2> vertex;
+    public List<Vector2> vertex;
 
     public Edge(Vector2 v1, Vector2 v2)
     {
@@ -16,7 +16,6 @@ struct Edge
 
 public class PCGSimple : MonoBehaviour
 {
-
     class Node
     {
         public Vector2 position;
@@ -28,7 +27,6 @@ public class PCGSimple : MonoBehaviour
         {
             this.position = location;
         }
-
     }
 
     class Room : Node
@@ -42,13 +40,13 @@ public class PCGSimple : MonoBehaviour
 
         public Room(Vector2 location) : base(location)
         {
-            this.position = location;
+            //this.position = location;
         }
     }
 
     class Corridor : Node
     {
-        List<Corridor> segments;
+        List<Segment> segments;
         List<Vector2> turnLocuses;
 
         float length;
@@ -56,7 +54,7 @@ public class PCGSimple : MonoBehaviour
 
         public Corridor(Vector2 location) : base(location)
         {
-            this.position = location;
+            //this.position = location;
         }
     }
 
@@ -74,10 +72,17 @@ public class PCGSimple : MonoBehaviour
         Node pivot;
         Vector2 pivotLocus;
 
+        public int numNodes;
+
         List<Node> nodes = new List<Node>();
+
+        public Path (Node pivot)
+        {
+            this.pivot = pivot;
+        }
     }
 
-    public const float CONST2D = 5f;
+    public const float CONST2D = 0.2f;
     public GameObject spriteTemplate;
 
     float numRoomMin = 4f;
@@ -117,10 +122,10 @@ public class PCGSimple : MonoBehaviour
         Room.height = Room.area / Room.width;
 
         Vector2[] vertices = new Vector2[4];
-        Vector2 vertex1 = Room.position + new Vector2(-Room.width / 2,  Room.height / 2) * CONST2D;
-        Vector2 vertex2 = Room.position + new Vector2( Room.width / 2,  Room.height / 2) * CONST2D;
-        Vector2 vertex3 = Room.position + new Vector2( Room.width / 2, -Room.height / 2) * CONST2D;
-        Vector2 vertex4 = Room.position + new Vector2(-Room.width / 2, -Room.height / 2) * CONST2D;
+        Vector2 vertex1 = Room.position + new Vector2(-Room.width / 2,  Room.height / 2); // * CONST2D;
+        Vector2 vertex2 = Room.position + new Vector2( Room.width / 2,  Room.height / 2); // * CONST2D;
+        Vector2 vertex3 = Room.position + new Vector2( Room.width / 2, -Room.height / 2); // * CONST2D;
+        Vector2 vertex4 = Room.position + new Vector2(-Room.width / 2, -Room.height / 2); // * CONST2D;
 
         Edge edge1 = new Edge(vertex1, vertex2);
         Edge edge2 = new Edge(vertex2, vertex3);
@@ -129,13 +134,26 @@ public class PCGSimple : MonoBehaviour
 
         Room.edges = new List<Edge> { edge1, edge2, edge3, edge4 };
         Room.room = Instantiate<GameObject>(spriteTemplate, Room.position, Quaternion.identity, gameObject.transform);
+        Room.room.name = "Tile";
         Room.room.transform.localScale = new Vector3(Room.width, Room.height, 0f) * CONST2D;
 
-        // DEBUG    
-        Debug.Log(Room.edges[0]);
-        Debug.Log(Room.edges);
-
         return Room;
+    }
+
+    private Corridor GenCorridor()
+    {
+        return new Corridor(Vector2.zero);
+    }
+
+    private Path GenPath(Node pivotNode)
+    {
+        Path Path = new Path(pivotNode);
+
+        Path.numNodes = GenUniformInt(numRoomMin, numRoomMax) * 2; // There is a corridor for every room
+
+
+
+        return Path;
     }
 
     // Use this for initialization
