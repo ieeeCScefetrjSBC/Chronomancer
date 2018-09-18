@@ -26,6 +26,14 @@ public class Player : MonoBehaviour {
     private Sprite sp;
     private SkillUser skills;
 
+    public delegate void SKILL(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl);
+
+    public SKILL skill1;
+    public SKILL skill2;
+    public SKILL skill3;
+    public SKILL skill4;
+
+
 
     void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +41,10 @@ public class Player : MonoBehaviour {
         spr = GetComponent<SpriteRenderer>();
         skills = GetComponent<SkillUser>();
         sp = spr.sprite;
+
+        skill1 = skills.Ice_Block;
+        skill2 = skills.Chain_Lightning;
+        skill3 = skills.Crippling_Oil;
 
         MapaCyber mc = FindObjectOfType<MapaCyber>();
         if (mc != null) transform.position = MapaCyber.sala[0].transform.position + Vector3.back;
@@ -80,19 +92,19 @@ public class Player : MonoBehaviour {
 
         if (Input.GetMouseButton(0) && Time.time > skill1cdt + skill1CoolDown){
             skill1cdt = Time.time;
-            skills.Ice_Block((Vector2)transform.position + dir, dir, 3, 10, true);
+            skill1((Vector2)transform.position + dir, dir, 3, 10, true);
         }
 
         if (Input.GetMouseButton(1) && Time.time > skill2cdt + skill2CoolDown)
         {
             skill2cdt = Time.time;
-            skills.Chain_Lightning((Vector2)transform.position, dir, 15, 10, true);
+            skill2((Vector2)transform.position, dir, 15, 10, true);
         }
 
         if (Input.GetMouseButton(2) && Time.time > skill3cdt + skill3CoolDown)
         {
             skill3cdt = Time.time;
-            skills.Crippling_Oil((Vector2)transform.position, dir, 15, 10, true);
+            skill3((Vector2)transform.position, dir, 15, 10, true);
         }
     }
 
@@ -111,5 +123,32 @@ public class Player : MonoBehaviour {
                 Destroy(t.gameObject);
             }
         }
+    }
+
+    public void TrocarSkill1(string sk) {
+        if (sk == "Ice") skill1 = skills.Ice_Block;
+        else if (sk == "Light") skill1 = skills.Chain_Lightning;
+        else if (sk == "Oil") skill1 = skills.Crippling_Oil;
+    }
+
+    public void TrocarSkill2(string sk)
+    {
+        if (sk == "Ice") skill2 = skills.Ice_Block;
+        else if (sk == "Light") skill2 = skills.Chain_Lightning;
+        else if (sk == "Oil") skill2 = skills.Crippling_Oil;
+    }
+
+    public void TrocarSkill3(string sk)
+    {
+        if (sk == "Ice") skill3 = skills.Ice_Block;
+        else if (sk == "Light") skill3 = skills.Chain_Lightning;
+        else if (sk == "Oil") skill3 = skills.Crippling_Oil;
+    }
+
+    public void TrocarSkill4(string sk)
+    {
+        if (sk == "Ice") skill4 = skills.Ice_Block;
+        else if (sk == "Light") skill4 = skills.Chain_Lightning;
+        else if (sk == "Oil") skill4 = skills.Crippling_Oil;
     }
 }
