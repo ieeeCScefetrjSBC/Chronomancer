@@ -28,10 +28,10 @@ public class Player : MonoBehaviour {
 
     public delegate void SKILL(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl);
 
-    public SKILL skill1;
-    public SKILL skill2;
-    public SKILL skill3;
-    public SKILL skill4;
+    public static SKILL skill1;
+    public static SKILL skill2;
+    public static SKILL skill3;
+    public static SKILL skill4;
 
 
 

@@ -16,6 +16,11 @@ public class SkillUser : MonoBehaviour {
     [SerializeField]
     private GameObject AreaIceBlock;
 
+    public static Player.SKILL Ice_Block_del;
+    public static Player.SKILL Chain_Lightning_del;
+    public static Player.SKILL Crippling_Oil_del;
+
+
     void Awake() {
         if (Gelo != null && GeloG == null) GeloG = Gelo;
         if (Oleo != null && OleoG == null) OleoG = Oleo;
@@ -27,6 +32,13 @@ public class SkillUser : MonoBehaviour {
         if (Gelo == null) Gelo = GeloG;
         if (Oleo == null) Oleo = OleoG;
         if (AreaIceBlock == null) AreaIceBlock = AreaIceBlockG;
+
+        if (Ice_Block_del == null && GetComponent<Player>() != null){
+            Ice_Block_del = Ice_Block;
+            Chain_Lightning_del = Chain_Lightning;
+            Crippling_Oil_del = Crippling_Oil;
+            Debug.Log(Ice_Block_del.Method);
+        }
     }
 	
 	void Update () {
