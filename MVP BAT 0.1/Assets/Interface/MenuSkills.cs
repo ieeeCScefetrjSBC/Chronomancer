@@ -10,6 +10,7 @@ public class MenuSkills : MonoBehaviour {
     public int skillNumber = 0;
     public int skillIdentifier = 0;
 
+    MenuSkills ocupado;
     Player.SKILL skillAtual;
     Vector3 ini;
     Vector3 diff;
@@ -18,7 +19,17 @@ public class MenuSkills : MonoBehaviour {
         if (posKill == null) posKill = new Transform[4];
 
 
-        if (skillIdentifier != 0){
+        
+
+        if (skillNumber != 0) posKill[skillNumber - 1] = transform;
+        ini = transform.position;
+    }
+
+    public void iniMover(){
+        diff = transform.position - Input.mousePosition;
+
+        if (skillIdentifier != 0)
+        {
             switch (skillIdentifier)
             {
                 case (1):
@@ -31,15 +42,9 @@ public class MenuSkills : MonoBehaviour {
                     skillAtual = SkillUser.Crippling_Oil_del;
                     break;
             }
-            
+
         }
 
-        if (skillNumber != 0) posKill[skillNumber - 1] = transform;
-        ini = transform.position;
-    }
-
-    public void iniMover(){
-        diff = transform.position - Input.mousePosition;
     }
 
     public void mover () {
@@ -51,15 +56,30 @@ public class MenuSkills : MonoBehaviour {
         float[] dis = new float[4];
         for (int i = 0; i < posKill.Length; i++) dis[i] = (transform.position - posKill[i].position).magnitude;
 
-        if (Mathf.Min(dis) < 80) {
+        if (Mathf.Min(dis) < 80)
+        {
             int n = Array.IndexOf(dis, Mathf.Min(dis));
-            Debug.Log(skillAtual);
-            transform.position = posKill[n].position;
-            if (n == 0) Player.skill1 = skillAtual;
-            else if (n == 1) Player.skill2 = skillAtual;
-            else if (n == 2) Player.skill3 = skillAtual;
-            else if (n == 3) Player.skill4 = skillAtual;
+            var ou = posKill[n].GetComponent<MenuSkills>().ocupado;
+
+            if (ou == null) {
+                ou = this;
+                ocupado = ou;
+                transform.position = posKill[n].position;
+                if (n == 0) Player.skill1 = skillAtual;
+                else if (n == 1) Player.skill2 = skillAtual;
+                else if (n == 2) Player.skill3 = skillAtual;
+                else if (n == 3) Player.skill4 = skillAtual;
+            } else {
+                transform.position = ini;
+            }
         }
-        else transform.position = ini;
+        else
+        {
+            if (ocupado != null){
+                ocupado.ocupado = null;
+                ocupado = null;
+            }
+            transform.position = ini;
+        }
     }
 }
