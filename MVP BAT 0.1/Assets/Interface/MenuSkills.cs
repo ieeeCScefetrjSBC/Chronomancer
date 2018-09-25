@@ -62,7 +62,9 @@ public class MenuSkills : MonoBehaviour {
             var ou = posKill[n].GetComponent<MenuSkills>().ocupado;
 
             if (ou == null) {
+                Debug.Log(ou);
                 ou = this;
+                Debug.Log(ou);
                 ocupado = ou;
                 transform.position = posKill[n].position;
                 if (n == 0) Player.skill1 = skillAtual;
