@@ -59,12 +59,16 @@ public class MenuSkills : MonoBehaviour {
         if (Mathf.Min(dis) < 80)
         {
             int n = Array.IndexOf(dis, Mathf.Min(dis));
-            var ou = posKill[n].GetComponent<MenuSkills>().ocupado;
+            var ou = posKill[n].GetComponent<MenuSkills>();
 
-            if (ou == null) {
-                Debug.Log(ou);
-                ou = this;
-                Debug.Log(ou);
+            if (ou.ocupado == null) {
+                if (ocupado != null){
+                    ocupado.ocupado = null;
+                    ocupado = null;
+                }
+                
+                ou.ocupado = this;
+                
                 ocupado = ou;
                 transform.position = posKill[n].position;
                 if (n == 0) Player.skill1 = skillAtual;
@@ -72,7 +76,8 @@ public class MenuSkills : MonoBehaviour {
                 else if (n == 2) Player.skill3 = skillAtual;
                 else if (n == 3) Player.skill4 = skillAtual;
             } else {
-                transform.position = ini;
+                if(ocupado != null) transform.position = ocupado.transform.position;
+                else transform.position = ini;
             }
         }
         else
@@ -82,6 +87,18 @@ public class MenuSkills : MonoBehaviour {
                 ocupado = null;
             }
             transform.position = ini;
+        }
+
+        foreach (var a in posKill) {
+            var hn = a.GetComponent<MenuSkills>();
+            if (hn.ocupado == null) {
+                Debug.Log(a.name);
+                Debug.Log(hn.skillNumber);
+                if (hn.skillNumber == 1) Player.skill1 = null;
+                else if (hn.skillNumber == 2) Player.skill2 = null;
+                else if (hn.skillNumber == 3) Player.skill3 = null;
+                else if (hn.skillNumber == 4) Player.skill4 = null;
+            }
         }
     }
 }
