@@ -20955,6 +20955,8 @@ MonoBehaviour:
   Oleo: {fileID: 1037377318936028, guid: c8a582895e477414a97acaadca75dfea, type: 2}
   AreaIceBlock: {fileID: 1977309258378208, guid: 6775d39d99f2a614992ec15d5b5df77e,
     type: 2}
+  AreaRain: {fileID: 1027494061136086, guid: a9a7a36842b19d4459688d4048167414, type: 2}
+  AreaMeteor: {fileID: 1486518915179026, guid: 4b35f2a3bf555e949839b8d5b0d329be, type: 2}
 --- !u!1 &1518186007
 GameObject:
   m_ObjectHideFlags: 0

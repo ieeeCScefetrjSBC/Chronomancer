@@ -42,9 +42,9 @@ public class Player : MonoBehaviour {
         skills = GetComponent<SkillUser>();
         sp = spr.sprite;
 
-        skill1 = skills.Ice_Block;
-        skill2 = skills.Chain_Lightning;
-        skill3 = skills.Crippling_Oil;
+        skill1 = skills.Heavy_Rain;
+        skill3 = skills.Chain_Lightning;
+        skill2 = skills.Meteor;
 
         MapaCyber mc = FindObjectOfType<MapaCyber>();
         if (mc != null) transform.position = MapaCyber.sala[0].transform.position + Vector3.back;
@@ -54,6 +54,9 @@ public class Player : MonoBehaviour {
         position = transform.position;
         vel = rb.velocity;
         if (vida <= 0) enabled = false;
+
+
+
 	}
 
     void FixedUpdate()

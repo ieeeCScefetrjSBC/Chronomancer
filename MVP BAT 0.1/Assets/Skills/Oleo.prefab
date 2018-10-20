@@ -107,7 +107,7 @@ MonoBehaviour:
   emChamas: 0
   fonteTensao: 0
   tensaoEle: 0
-  calor: 100
+  calor: 1
   humidade: 0
   combustivel: 0
 --- !u!198 &198529034330771056

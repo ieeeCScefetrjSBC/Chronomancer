@@ -8,6 +8,8 @@ public class SkillUser : MonoBehaviour {
     private static GameObject GeloG;
     private static GameObject OleoG;
     private static GameObject AreaIceBlockG;
+    private static GameObject AreaRainG;
+    private static GameObject AreaMeteorG;
 
     [SerializeField]
     private GameObject Gelo;
@@ -15,17 +17,24 @@ public class SkillUser : MonoBehaviour {
     private GameObject Oleo;
     [SerializeField]
     private GameObject AreaIceBlock;
+    [SerializeField]
+    private GameObject AreaRain;
+    [SerializeField]
+    private GameObject AreaMeteor;
 
     public static Player.SKILL Ice_Block_del;
     public static Player.SKILL Chain_Lightning_del;
     public static Player.SKILL Crippling_Oil_del;
+    public static Player.SKILL Heavy_Rain_del;
+    public static Player.SKILL Meteor_del;
 
 
     void Awake() {
         if (Gelo != null && GeloG == null) GeloG = Gelo;
         if (Oleo != null && OleoG == null) OleoG = Oleo;
         if (AreaIceBlock != null && AreaIceBlockG == null) AreaIceBlockG = AreaIceBlock;
-
+        if (AreaRain != null && AreaRainG == null) AreaRainG = AreaRain;
+        if (AreaMeteor != null && AreaMeteorG == null) AreaMeteorG = AreaMeteor;
     }
 
     void Start(){
@@ -37,6 +46,8 @@ public class SkillUser : MonoBehaviour {
             Ice_Block_del = Ice_Block;
             Chain_Lightning_del = Chain_Lightning;
             Crippling_Oil_del = Crippling_Oil;
+            Heavy_Rain_del = Heavy_Rain;
+            Meteor_del = Meteor;
             Debug.Log(Ice_Block_del.Method);
         }
     }
@@ -101,4 +112,23 @@ public class SkillUser : MonoBehaviour {
     {
         Instantiate(OleoG, transform.position + 15*((Vector3)dir), Quaternion.identity);
     }
+
+    public void Meteor(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
+    {
+        GameObject g = Instantiate(AreaMeteorG, transform.position + 15 * ((Vector3)dir), Quaternion.identity);
+        MeteorRegion r = g.GetComponent<MeteorRegion>();
+        r.dano = dano;
+        r.pl = pl;
+        r.Invoke("Finish", 0.5f);
+    }
+
+    public void Heavy_Rain(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
+    {
+        GameObject g = Instantiate(AreaRainG, transform.position + 15 * ((Vector3)dir), Quaternion.identity);
+        RainRegion r = g.GetComponent<RainRegion>();
+        r.dano = dano;
+        r.pl = pl;
+        r.Invoke("Finish", tempo);
+    }
+
 }
