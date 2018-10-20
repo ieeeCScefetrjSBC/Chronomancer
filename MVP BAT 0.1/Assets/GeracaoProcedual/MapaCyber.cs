@@ -140,8 +140,7 @@ public class MapaCyber : MonoBehaviour
         if (x == maxX - 1 || MatMapaCyber[x + 1][y] == null) Instantiate(paredeV, transform.position + Vector3.back + Vector3.right * (disBlocos / 2), Quaternion.identity);
         if (y == 0 || MatMapaCyber[x][y-1] == null) Instantiate(paredeH, transform.position + Vector3.back + Vector3.up * (disBlocos / 2), Quaternion.identity);
         if (y == maxY - 1 || MatMapaCyber[x][y+1] == null) Instantiate(paredeH, transform.position + Vector3.back + Vector3.down * (disBlocos / 2), Quaternion.identity);
-
-
+        
     }
 
 
@@ -155,6 +154,12 @@ public class MapaCyber : MonoBehaviour
             }
 
         }
+
+        if (this == sala[sala.Count - 1])
+        {
+            PathFinding.instance.InitMap(new Vector2(maxX * 40, maxY * 40));
+        }
+
 
         Destroy(this);
     }
