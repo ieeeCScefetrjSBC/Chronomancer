@@ -27,11 +27,11 @@ public class IATeste : Inimigo
     {
         UpdateCode();
 
+
+        if (Vector2.Distance(Player.position, transform.position) > distSegue) return;
         if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
-        
         Vector2 dir = (PathFinding.instance.path[0] - transform.position);
         rb.velocity = dir.normalized * vel;
-        //if (dir.magnitude < distSegue) rb.velocity = dir.normalized * vel;
 
     }
 
