@@ -10,6 +10,10 @@ public class MenuSkills : MonoBehaviour {
     public int skillNumber = 0;
     public int skillIdentifier = 0;
 
+    public float Dano;
+    public float tempoDuracao;
+    public float tempoCoolDown;
+
     MenuSkills ocupado;
     Player.SKILL skillAtual;
     Vector3 ini;
@@ -77,10 +81,32 @@ public class MenuSkills : MonoBehaviour {
                 
                 ocupado = ou;
                 transform.position = posKill[n].position;
-                if (n == 0) Player.skill1 = skillAtual;
-                else if (n == 1) Player.skill2 = skillAtual;
-                else if (n == 2) Player.skill3 = skillAtual;
-                else if (n == 3) Player.skill4 = skillAtual;
+                if (n == 0)
+                {
+                    Player.Insta.skill1CoolDown = tempoCoolDown;
+                    Player.Insta.skill1Dano = Dano;
+                    Player.Insta.skill1Dura = tempoDuracao;
+                    Player.skill1 = skillAtual;
+                }
+                else if (n == 1)
+                {
+                    Player.Insta.skill2CoolDown = tempoCoolDown;
+                    Player.Insta.skill2Dano = Dano;
+                    Player.Insta.skill2Dura = tempoDuracao;
+                    Player.skill2 = skillAtual;
+                }
+                else if (n == 2)
+                {
+                    Player.Insta.skill3CoolDown = tempoCoolDown;
+                    Player.Insta.skill3Dano = Dano;
+                    Player.Insta.skill3Dura = tempoDuracao;
+                    Player.skill3 = skillAtual;
+                }
+                else if (n == 3)
+                {
+                    
+                    Player.skill4 = skillAtual;
+                }
             } else {
                 if(ocupado != null) transform.position = ocupado.transform.position;
                 else transform.position = ini;

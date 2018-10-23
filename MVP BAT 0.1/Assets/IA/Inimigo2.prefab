@@ -117,6 +117,7 @@ MonoBehaviour:
   danoAgua: 0
   vel: 5
   distSegue: {x: 15, y: 50}
+  skillIdentifier: 1
   skill1Time: 5
   skill1TellTime: 0.6
 --- !u!114 &114542733939530308

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+
+    public static Player Insta;
 
     private Rigidbody2D rb;
 
@@ -14,6 +17,12 @@ public class Player : MonoBehaviour {
     public float RunVel;
     public float maxVel;
     public float maxRunVel;
+    public float skill1Dano;
+    public float skill2Dano;
+    public float skill3Dano;
+    public float skill1Dura;
+    public float skill2Dura;
+    public float skill3Dura;
     public float skill1CoolDown;
     public float skill2CoolDown;
     public float skill3CoolDown;
@@ -48,7 +57,8 @@ public class Player : MonoBehaviour {
 
         MapaCyber mc = FindObjectOfType<MapaCyber>();
         if (mc != null) transform.position = MapaCyber.sala[0].transform.position + Vector3.back;
-	}
+        if (Insta == null) Insta = this;
+    }
 	
 	void Update () {
         position = transform.position;

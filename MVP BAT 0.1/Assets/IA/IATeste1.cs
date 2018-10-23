@@ -10,6 +10,8 @@ public class IATeste1 : Inimigo {
     [SerializeField]
     private Vector2 distSegue;
     [SerializeField]
+    private int skillIdentifier = 0;
+    [SerializeField]
     private float skill1Time;
     [SerializeField]
     private float skill1TellTime;
@@ -53,7 +55,29 @@ public class IATeste1 : Inimigo {
 
     void skill1()
     {
-        skills.Ice_Block((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+        if (skillIdentifier != 0)
+        {
+            switch (skillIdentifier)
+            {
+                case (1):
+                    skills.Ice_Block((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    break;
+                case (2):
+                    skills.Chain_Lightning((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    break;
+                case (3):
+                    skills.Crippling_Oil((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    break;
+                case (4):
+                    skills.Meteor((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    break;
+                case (5):
+                    skills.Heavy_Rain((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    break;
+            }
+
+        }
+        
     }
 
     void skill1Fim()
