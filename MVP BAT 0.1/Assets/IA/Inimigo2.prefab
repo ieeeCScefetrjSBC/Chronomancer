@@ -117,7 +117,8 @@ MonoBehaviour:
   danoAgua: 0
   vel: 5
   distSegue: {x: 15, y: 50}
-  skill1time: 8
+  skill1Time: 5
+  skill1TellTime: 0.6
 --- !u!114 &114542733939530308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +133,8 @@ MonoBehaviour:
   Gelo: {fileID: 0}
   Oleo: {fileID: 0}
   AreaIceBlock: {fileID: 0}
+  AreaRain: {fileID: 0}
+  AreaMeteor: {fileID: 0}
 --- !u!114 &114588189669633618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4774,7 +4777,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ee78abcf0e459dc4795a4dd63a51fff5, type: 3}
   m_Color: {r: 0, g: 0.34202516, b: 0.6509434, a: 1}
   m_FlipX: 0

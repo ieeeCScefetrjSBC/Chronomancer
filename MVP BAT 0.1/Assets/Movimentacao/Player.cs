@@ -86,18 +86,20 @@ public class Player : MonoBehaviour {
             spr.sprite = sp;
         }
 
-        Vector3 a = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+        Vector3 a = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position);
+
+        Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg - 90);
 
         //Skills
-        Vector2 dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        Vector2 dir = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position).normalized;
         if (skill1 != null)
         {
             if (Input.GetMouseButton(0) && Time.time > skill1cdt + skill1CoolDown)
             {
                 skill1cdt = Time.time;
-                skill1((Vector2)transform.position + dir, dir, 3, 10, true);
+                skill1((Vector2)transform.position, dir, 3, 10, true);
             }
         }
 
@@ -122,6 +124,7 @@ public class Player : MonoBehaviour {
 
     public void descongelar(float tempo)
     {
+        Player.vel = Vector3.zero;
         Invoke("descongelar2", tempo);
     }
 
@@ -137,30 +140,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void TrocarSkill1(string sk) {
-        if (sk == "Ice") skill1 = skills.Ice_Block;
-        else if (sk == "Light") skill1 = skills.Chain_Lightning;
-        else if (sk == "Oil") skill1 = skills.Crippling_Oil;
-    }
-
-    public void TrocarSkill2(string sk)
+    public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
     {
-        if (sk == "Ice") skill2 = skills.Ice_Block;
-        else if (sk == "Light") skill2 = skills.Chain_Lightning;
-        else if (sk == "Oil") skill2 = skills.Crippling_Oil;
-    }
-
-    public void TrocarSkill3(string sk)
-    {
-        if (sk == "Ice") skill3 = skills.Ice_Block;
-        else if (sk == "Light") skill3 = skills.Chain_Lightning;
-        else if (sk == "Oil") skill3 = skills.Crippling_Oil;
-    }
-
-    public void TrocarSkill4(string sk)
-    {
-        if (sk == "Ice") skill4 = skills.Ice_Block;
-        else if (sk == "Light") skill4 = skills.Chain_Lightning;
-        else if (sk == "Oil") skill4 = skills.Crippling_Oil;
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 }

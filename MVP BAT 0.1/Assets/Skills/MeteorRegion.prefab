@@ -70,8 +70,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pl: 0
   dano: 0
-  tempo: 0
-  Gelo: {fileID: 0}
 --- !u!212 &212618448962517590
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ee78abcf0e459dc4795a4dd63a51fff5, type: 3}
   m_Color: {r: 1, g: 0.4064395, b: 0, a: 0.6431373}
   m_FlipX: 0

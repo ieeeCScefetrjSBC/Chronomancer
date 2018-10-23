@@ -41,6 +41,12 @@ public class MenuSkills : MonoBehaviour {
                 case (3):
                     skillAtual = SkillUser.Crippling_Oil_del;
                     break;
+                case (4):
+                    skillAtual = SkillUser.Meteor_del;
+                    break;
+                case (5):
+                    skillAtual = SkillUser.Heavy_Rain_del;
+                    break;
             }
 
         }
@@ -92,8 +98,6 @@ public class MenuSkills : MonoBehaviour {
         foreach (var a in posKill) {
             var hn = a.GetComponent<MenuSkills>();
             if (hn.ocupado == null) {
-                Debug.Log(a.name);
-                Debug.Log(hn.skillNumber);
                 if (hn.skillNumber == 1) Player.skill1 = null;
                 else if (hn.skillNumber == 2) Player.skill2 = null;
                 else if (hn.skillNumber == 3) Player.skill3 = null;

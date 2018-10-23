@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IATeste : Inimigo
+public class IATeste2 : Inimigo
 {
 
     [Space]
@@ -23,14 +23,17 @@ public class IATeste : Inimigo
     void Start()
     {
         StartCode();
-        
+
     }
 
     void Update()
     {
         UpdateCode();
 
-        if ((Player.position - transform.position).magnitude > distSegue) return;
+        RaycastHit2D visao = Physics2D.Raycast(transform.position, Player.position - transform.position, distSegue);
+
+        if (!visao) return;
+        if (visao.transform.tag != "Player") return;
 
         if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
         Vector2 dir = (PathFinding.instance.path[0] - transform.position);
@@ -40,7 +43,7 @@ public class IATeste : Inimigo
 
     private void OnCollisionStay2D(Collision2D ou)
     {
-        if(ou.transform != null)
+        if (ou.transform != null)
         {
             Player p = ou.transform.GetComponent<Player>();
 
@@ -68,11 +71,11 @@ public class IATeste : Inimigo
         }
     }
 
-    void Attack(){
+    void Attack()
+    {
         if (pt != null)
         {
             pt.vida -= dano;
-            pt = null;
             Debug.Log("Bati");
         }
     }

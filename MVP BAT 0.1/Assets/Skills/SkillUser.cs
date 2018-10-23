@@ -48,7 +48,7 @@ public class SkillUser : MonoBehaviour {
             Crippling_Oil_del = Crippling_Oil;
             Heavy_Rain_del = Heavy_Rain;
             Meteor_del = Meteor;
-            Debug.Log(Ice_Block_del.Method);
+            
         }
     }
 	
