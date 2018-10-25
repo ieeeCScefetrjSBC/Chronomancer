@@ -9,7 +9,7 @@ public class IATeste : Inimigo
     [SerializeField]
     private float vel;
     [SerializeField]
-    private float distSegue;
+    private Vector2 distSegue;
     [SerializeField]
     private float dano;
     [SerializeField]
@@ -18,6 +18,7 @@ public class IATeste : Inimigo
     private float callTime;
 
     private bool attackAble = true;
+    private bool attacking = false;
     private Player pt;
 
     void Start()
@@ -30,7 +31,17 @@ public class IATeste : Inimigo
     {
         UpdateCode();
 
-        if ((Player.position - transform.position).magnitude > distSegue) return;
+        if ((Player.position - transform.position).magnitude > distSegue.y) return;
+
+        if ((Player.position - transform.position).magnitude < distSegue.x && attackAble)
+        {
+            attackAble = false;
+            Invoke("Attack", callTime);
+            Invoke("FimAttack", attackTime);
+            Debug.Log("Vou Bater");
+        }
+
+        if (!attackAble) return;
 
         if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
         Vector2 dir = (PathFinding.instance.path[0] - transform.position);
@@ -38,44 +49,27 @@ public class IATeste : Inimigo
 
     }
 
-    private void OnCollisionStay2D(Collision2D ou)
+    private void OnCollisionEnter2D(Collision2D ou)
     {
         if(ou.transform != null)
         {
             Player p = ou.transform.GetComponent<Player>();
 
-            if (p != null && attackAble)
+            if (p != null && attacking)
             {
-                pt = p;
-                attackAble = false;
-                Invoke("Attack", callTime);
-                Invoke("FimAttack", attackTime);
-                Debug.Log("Vou Bater");
+                Player.Insta.vida -= dano;
             }
         }
     }
 
-    private void OnCollisionExit2D(Collision2D ou)
-    {
-        if (ou.transform != null)
-        {
-            Player p = ou.transform.GetComponent<Player>();
-
-            if (p != null)
-            {
-                pt = null;
-            }
-        }
-    }
+  
 
     void Attack(){
-        if (pt != null)
-        {
-            pt.vida -= dano;
-            pt = null;
-            Debug.Log("Bati");
-        }
+        attacking = true;
+        rb.AddForce((Player.position - transform.position)*100);
+        Debug.Log("Bati");
+        
     }
 
-    void FimAttack() { attackAble = true; }
+    void FimAttack() { attackAble = true; attacking = false; }
 }

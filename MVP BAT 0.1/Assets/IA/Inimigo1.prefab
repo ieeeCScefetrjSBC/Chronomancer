@@ -134,10 +134,10 @@ MonoBehaviour:
   danoEletricidade: 5
   danoAgua: 1
   vel: 5
-  distSegue: 50
+  distSegue: {x: 15, y: 60}
   dano: 10
-  attackTime: 1
-  callTime: 0.5
+  attackTime: 5
+  callTime: 1.5
 --- !u!114 &114694068455202486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +154,7 @@ MonoBehaviour:
   AreaIceBlock: {fileID: 0}
   AreaRain: {fileID: 0}
   AreaMeteor: {fileID: 0}
+  RainEffect: {fileID: 0}
 --- !u!198 &198724209492465246
 ParticleSystem:
   m_ObjectHideFlags: 1

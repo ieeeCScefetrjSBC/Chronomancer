@@ -91,7 +91,7 @@ public class SkillUser : MonoBehaviour {
         r.tempo = tempo;
         r.dano = dano;
         r.pl = pl;
-        r.Invoke("Finish", 0.5f);
+        r.Invoke("Finish", tempo);
     }
 
     public void Chain_Lightning(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
