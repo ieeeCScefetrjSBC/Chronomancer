@@ -611,6 +611,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 3
   skillIdentifier: 0
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &436457057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5434,6 +5437,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 1
   skillIdentifier: 0
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &566573912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5519,6 +5525,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 0
   skillIdentifier: 3
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &567823447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5668,6 +5677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 0
   skillIdentifier: 4
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &580217085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16222,6 +16234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 2
   skillIdentifier: 0
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &1216496823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16488,6 +16503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 4
   skillIdentifier: 0
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &1399357492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16877,6 +16895,12 @@ MonoBehaviour:
   RunVel: 4
   maxVel: 12
   maxRunVel: 24
+  skill1Dano: 0
+  skill2Dano: 0
+  skill3Dano: 0
+  skill1Dura: 0
+  skill2Dura: 0
+  skill3Dura: 0
   skill1CoolDown: 2
   skill2CoolDown: 2
   skill3CoolDown: 1
@@ -21582,6 +21606,7 @@ MonoBehaviour:
     type: 2}
   AreaRain: {fileID: 1027494061136086, guid: a9a7a36842b19d4459688d4048167414, type: 2}
   AreaMeteor: {fileID: 1486518915179026, guid: 4b35f2a3bf555e949839b8d5b0d329be, type: 2}
+  RainEffect: {fileID: 1166062783209180, guid: 8b8cbc3901d49764098258a9fb28bf67, type: 2}
 --- !u!1 &1513353525
 GameObject:
   m_ObjectHideFlags: 0
@@ -26950,6 +26975,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 0
   skillIdentifier: 1
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &1828093816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27477,6 +27505,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 0
   skillIdentifier: 2
+  Dano: 0
+  tempoDuracao: 0
+  tempoCoolDown: 0
 --- !u!114 &2053963776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27690,6 +27721,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 0
   skillIdentifier: 5
+  Dano: 0
+  tempoDuracao: 10
+  tempoCoolDown: 1
 --- !u!114 &2077110508
 MonoBehaviour:
   m_ObjectHideFlags: 0
