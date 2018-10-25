@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
         Vector3 a = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position);
 
-        Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
 
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg - 90);
 
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButton(0) && Time.time > skill1cdt + skill1CoolDown)
             {
                 skill1cdt = Time.time;
-                skill1((Vector2)transform.position, dir, 3, 10, true);
+                skill1((Vector2)transform.position, dir, skill1Dura, skill1Dano, true);
             }
         }
 
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButton(1) && Time.time > skill2cdt + skill2CoolDown)
             {
                 skill2cdt = Time.time;
-                skill2((Vector2)transform.position, dir, 15, 10, true);
+                skill2((Vector2)transform.position, dir, skill2Dura, skill2Dano, true);
             }
         }
 
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButton(2) && Time.time > skill3cdt + skill3CoolDown)
             {
                 skill3cdt = Time.time;
-                skill3((Vector2)transform.position, dir, 15, 10, true);
+                skill3((Vector2)transform.position, dir, skill3Dura, skill3Dano, true);
             }
         }
     }

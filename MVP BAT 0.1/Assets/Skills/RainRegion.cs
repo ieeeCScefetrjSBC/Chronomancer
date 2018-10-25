@@ -17,6 +17,7 @@ public class RainRegion : MonoBehaviour {
 
     public void Finish()
     {
+        Debug.Log("Fim");
         Destroy(gameObject);
     }
 

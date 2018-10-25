@@ -84,8 +84,10 @@ public class MenuSkills : MonoBehaviour {
                 if (n == 0)
                 {
                     Player.Insta.skill1CoolDown = tempoCoolDown;
+                    
                     Player.Insta.skill1Dano = Dano;
                     Player.Insta.skill1Dura = tempoDuracao;
+                    Debug.Log(tempoDuracao);
                     Player.skill1 = skillAtual;
                 }
                 else if (n == 1)

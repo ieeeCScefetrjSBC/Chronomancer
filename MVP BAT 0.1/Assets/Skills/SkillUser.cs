@@ -11,6 +11,8 @@ public class SkillUser : MonoBehaviour {
     private static GameObject AreaRainG;
     private static GameObject AreaMeteorG;
 
+    private static GameObject RainEffectG;
+
     [SerializeField]
     private GameObject Gelo;
     [SerializeField]
@@ -21,6 +23,8 @@ public class SkillUser : MonoBehaviour {
     private GameObject AreaRain;
     [SerializeField]
     private GameObject AreaMeteor;
+    [SerializeField]
+    private GameObject RainEffect;
 
     public static Player.SKILL Ice_Block_del;
     public static Player.SKILL Chain_Lightning_del;
@@ -35,6 +39,7 @@ public class SkillUser : MonoBehaviour {
         if (AreaIceBlock != null && AreaIceBlockG == null) AreaIceBlockG = AreaIceBlock;
         if (AreaRain != null && AreaRainG == null) AreaRainG = AreaRain;
         if (AreaMeteor != null && AreaMeteorG == null) AreaMeteorG = AreaMeteor;
+        if (RainEffect != null && RainEffectG == null) RainEffectG = RainEffect;
     }
 
     void Start(){
@@ -119,7 +124,7 @@ public class SkillUser : MonoBehaviour {
         MeteorRegion r = g.GetComponent<MeteorRegion>();
         r.dano = dano;
         r.pl = pl;
-        r.Invoke("Finish", 0.5f);
+        r.Invoke("Finish", tempo);
     }
 
     public void Heavy_Rain(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
@@ -129,6 +134,8 @@ public class SkillUser : MonoBehaviour {
         r.dano = dano;
         r.pl = pl;
         r.Invoke("Finish", tempo);
+        GameObject e = Instantiate(RainEffectG, transform.position + 15 * ((Vector3)dir) + new Vector3(0, 5, -10), Quaternion.Euler(-60, 0, 0));
+        Destroy(e, tempo);
     }
 
 }
