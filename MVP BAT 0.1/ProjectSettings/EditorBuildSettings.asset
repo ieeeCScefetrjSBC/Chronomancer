@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cenas/GeracaoProc.unity
     guid: 1ba7cb577384041449eec7a56e8d25bf
+  - enabled: 1
+    path: Assets/Cenas/Interface.unity
+    guid: 726ddbc9cad378344b6236d896a7eb3a
   m_configObjects: {}

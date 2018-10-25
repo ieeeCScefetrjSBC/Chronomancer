@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 26415b6507bc67d4092100c48b66f35b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Monster Friend (Fake Undertale Logo Font)
+  fontNames:
+  - Monster Friend (Fake Undertale Logo Font)
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
