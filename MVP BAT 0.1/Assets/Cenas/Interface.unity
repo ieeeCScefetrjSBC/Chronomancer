@@ -524,6 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 277480861}
   - component: {fileID: 277480860}
+  - component: {fileID: 277480862}
   m_Layer: 0
   m_Name: PathFinder
   m_TagString: Untagged
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayGizmos: 0
-  nodeSize: 5
+  nodeSize: 10
   unwalkableLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -554,13 +555,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277480859}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100, y: -200, z: 3}
-  m_LocalScale: {x: 8, y: 8, z: 5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &277480862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277480859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e664e80e7cd63004ab54e5982c2d15a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1485753825}
+  floor: {fileID: 1124019408}
+  paredeV: {fileID: 1345467018}
+  paredeH: {fileID: 1918222977}
+  inimigos:
+  - {fileID: 731677936}
+  - {fileID: 1113038158}
+  - {fileID: 772162827}
+  config:
+    width: 30
+    height: 30
 --- !u!1 &436457054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6130,6 +6153,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02f0a46d0d88e484083a09ab22e5b2f6, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &731677936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1786293335550148, guid: 02f0a46d0d88e484083a09ab22e5b2f6,
+    type: 2}
+  m_PrefabInternal: {fileID: 731677935}
 --- !u!1 &735985666
 GameObject:
   m_ObjectHideFlags: 0
@@ -10969,6 +10997,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc0e5a00b3bb0046a57b50246b11b22, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &772162827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1844298343863178, guid: 7bc0e5a00b3bb0046a57b50246b11b22,
+    type: 2}
+  m_PrefabInternal: {fileID: 772162826}
 --- !u!1 &804091417
 GameObject:
   m_ObjectHideFlags: 0
@@ -16132,6 +16165,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f722a069a299ef04393282eb7319c054, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1113038158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1246259194200378, guid: f722a069a299ef04393282eb7319c054,
+    type: 2}
+  m_PrefabInternal: {fileID: 1113038157}
 --- !u!1 &1124019408
 GameObject:
   m_ObjectHideFlags: 0
@@ -16141,7 +16179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1124019410}
   - component: {fileID: 1124019409}
-  - component: {fileID: 1124019411}
   m_Layer: 0
   m_Name: Branco
   m_TagString: Untagged
@@ -16202,35 +16239,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124019408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.9, y: 74.9, z: 3}
+  m_LocalPosition: {x: -79.3, y: 79.3, z: 3}
   m_LocalScale: {x: 8, y: 8, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1124019411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1124019408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f617eda8118f35d408afe91ee54e3ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  probSala: 0.6
-  maxX: 9
-  maxY: 9
-  disBlocos: 41
-  x: 0
-  y: 0
-  paredeV: {fileID: 1345467018}
-  paredeH: {fileID: 1918222977}
-  inimigos:
-  - {fileID: 1786293335550148, guid: 02f0a46d0d88e484083a09ab22e5b2f6, type: 2}
-  - {fileID: 1246259194200378, guid: f722a069a299ef04393282eb7319c054, type: 2}
-  mantem: 0
 --- !u!1 &1216496820
 GameObject:
   m_ObjectHideFlags: 0
@@ -16409,7 +16423,7 @@ GameObject:
   - component: {fileID: 1345467021}
   - component: {fileID: 1345467020}
   - component: {fileID: 1345467019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ParedeV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27255,7 +27269,7 @@ GameObject:
   - component: {fileID: 1918222980}
   - component: {fileID: 1918222979}
   - component: {fileID: 1918222978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ParedeH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
