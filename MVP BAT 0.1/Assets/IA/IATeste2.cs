@@ -18,11 +18,7 @@ public class IATeste2 : Inimigo
     private float callTime;
 
     private bool attackAble = true;
-    private bool procPos = true;
-    private Vector3 Mpos;
     private Player pt;
-
-    public Transform alvo;
 
     void Start()
     {
@@ -37,51 +33,13 @@ public class IATeste2 : Inimigo
         RaycastHit2D visao = Physics2D.Raycast(transform.position, Player.position - transform.position, distSegue);
 
         if (!visao) return;
-        if (visao.transform.tag == "Player" && attackAble)
-        {
+        if (visao.transform.tag != "Player") return;
 
-            attackAble = false;
-        }
-        
-        else
-        {
-            if (procPos)
-            {
-                Mpos = transform.position;
-                float dismax = 0;
-
-                for (float i = 0; i < 360; i++)
-                {
-                    Vector2 v = Vector2.up.Rotate(i);
-                    RaycastHit2D volta = Physics2D.Raycast(Player.position, v);
-
-                    if (volta)
-                    {
-                        if (volta.distance > dismax)
-                        {
-                            dismax = volta.distance;
-                            Mpos = volta.point - v;
-                            alvo.position = Mpos;
-                            procPos = false;
-                            Invoke("procurar", 5f);
-                        }
-                    }
-                }
-            }
-
-            if ((transform.position - Mpos).magnitude > 1f)
-            {
-                if (!PathFinding.instance.FindPath(Mpos, Player.position)) return;
-                Vector2 dir = (PathFinding.instance.path[0] - transform.position);
-                rb.velocity = dir.normalized * vel;
-            }
-        }
-
-        
+        if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
+        Vector2 dir = (PathFinding.instance.path[0] - transform.position);
+        rb.velocity = dir.normalized * vel;
 
     }
-
-    void procurar() {   procPos = true; }
 
     private void OnCollisionStay2D(Collision2D ou)
     {
@@ -123,20 +81,4 @@ public class IATeste2 : Inimigo
     }
 
     void FimAttack() { attackAble = true; }
-}
-
-public static class Vector2Extension
-{
-
-    public static Vector2 Rotate(this Vector2 v, float degrees)
-    {
-        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
-        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
-
-        float tx = v.x;
-        float ty = v.y;
-        v.x = (cos * tx) - (sin * ty);
-        v.y = (sin * tx) + (cos * ty);
-        return v;
-    }
 }
