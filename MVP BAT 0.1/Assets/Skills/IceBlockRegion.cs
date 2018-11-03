@@ -45,7 +45,7 @@ public class IceBlockRegion : MonoBehaviour {
                     i.descongelar(tempo);
 
 
-                    i.vida -= dano;//Causar Dano
+                    Player.CausarDano(dano);//Causar Dano
                 }
             }
         }

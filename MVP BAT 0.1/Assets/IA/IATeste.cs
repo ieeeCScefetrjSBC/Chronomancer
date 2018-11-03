@@ -19,7 +19,6 @@ public class IATeste : Inimigo
 
     private bool attackAble = true;
     private bool attacking = false;
-    private Player pt;
 
     void Start()
     {
@@ -57,7 +56,8 @@ public class IATeste : Inimigo
 
             if (p != null && attacking)
             {
-                Player.Insta.vida -= dano;
+                Player.CausarDano(dano);
+                Debug.Log("Acertei");
             }
         }
     }
@@ -67,7 +67,7 @@ public class IATeste : Inimigo
     void Attack(){
         attacking = true;
         rb.AddForce((Player.position - transform.position)*100);
-        Debug.Log("Bati");
+        
         
     }
 

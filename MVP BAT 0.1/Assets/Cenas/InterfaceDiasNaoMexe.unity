@@ -21824,7 +21824,6 @@ GameObject:
   - component: {fileID: 1518186014}
   - component: {fileID: 1518186013}
   - component: {fileID: 1518186012}
-  - component: {fileID: 1518186016}
   m_Layer: 0
   m_Name: Circulo2
   m_TagString: Untagged
@@ -26549,23 +26548,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.9
---- !u!114 &1518186016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1518186007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2b2128cab099e4b800d7880284fd04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 100
-  danoFogo: 0
-  danoTemp: 0
-  tempSegura: {x: 0, y: 0}
-  danoEletricidade: 0
-  danoAgua: 0
 --- !u!1 &1610366578
 GameObject:
   m_ObjectHideFlags: 0
@@ -27198,7 +27180,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 269489412}
+      - m_Target: {fileID: 0}
         m_MethodName: Sair
         m_Mode: 1
         m_Arguments:

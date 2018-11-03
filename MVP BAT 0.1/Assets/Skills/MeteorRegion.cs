@@ -32,7 +32,7 @@ public class MeteorRegion : MonoBehaviour {
                 Player i = ou.transform.gameObject.GetComponent<Player>();
                 if (i != null)
                 {
-                    i.vida -= dano;//Causar Dano
+                    Player.CausarDano(dano);//Causar Dano
                 }
             }
         }

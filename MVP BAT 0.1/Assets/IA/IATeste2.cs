@@ -16,13 +16,23 @@ public class IATeste2 : Inimigo
     private float attackTime;
     [SerializeField]
     private float callTime;
+    [SerializeField]
+    private float lockTime;
 
-    private bool attackAble = true;
+    private bool attackAble = true, attacking;
+    private bool procPos = true;
+    private Vector3 Mpos;
+    private Vector3 playerLast;
     private Player pt;
+    private LineRenderer ln;
+
+
+    public Transform alvo;
 
     void Start()
     {
         StartCode();
+        ln = GetComponent<LineRenderer>();
 
     }
 
@@ -32,53 +42,102 @@ public class IATeste2 : Inimigo
 
         RaycastHit2D visao = Physics2D.Raycast(transform.position, Player.position - transform.position, distSegue);
 
-        if (!visao) return;
-        if (visao.transform.tag != "Player") return;
 
-        if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
-        Vector2 dir = (PathFinding.instance.path[0] - transform.position);
-        rb.velocity = dir.normalized * vel;
 
-    }
 
-    private void OnCollisionStay2D(Collision2D ou)
-    {
-        if (ou.transform != null)
+        if (visao)
         {
-            Player p = ou.transform.GetComponent<Player>();
+            if (attacking)ln.SetPositions(new Vector3[] {transform.position + Vector3.back, (Vector3) visao.point + Vector3.back});
+            else if (!attackAble) ln.SetPositions(new Vector3[] {transform.position + Vector3.back, playerLast + Vector3.back});
+            else ln.SetPositions(new Vector3[] {transform.position});
 
-            if (p != null && attackAble)
+
+
+            if (visao.transform.tag == "Player" && attackAble)
             {
-                pt = p;
                 attackAble = false;
+                attacking = true;
+                
+
+                Invoke("Lock", lockTime);
                 Invoke("Attack", callTime);
                 Invoke("FimAttack", attackTime);
-                Debug.Log("Vou Bater");
+
             }
-        }
-    }
 
-    private void OnCollisionExit2D(Collision2D ou)
-    {
-        if (ou.transform != null)
-        {
-            Player p = ou.transform.GetComponent<Player>();
-
-            if (p != null)
+            else
             {
-                pt = null;
+                if (procPos)
+                {
+                    Mpos = transform.position;
+                    float dismax = 0;
+
+                    for (float i = 0; i < 360; i++)
+                    {
+                        Vector2 v = Vector2.up.Rotate(i);
+                        RaycastHit2D volta = Physics2D.Raycast(Player.position, v);
+
+                        if (volta)
+                        {
+                            if (volta.distance > dismax)
+                            {
+                                dismax = volta.distance;
+                                Mpos = volta.point - v;
+                            }
+                        }
+                    }
+
+                    alvo.position = Mpos;
+                    procPos = false;
+                    Invoke("procurar", 5f);
+                }
+
+                if ((transform.position - Mpos).magnitude > 1f)
+                {
+                    if (!PathFinding.instance.FindPath(Mpos, Player.position)) return;
+                    Vector2 dir = (PathFinding.instance.path[0] - transform.position);
+                    rb.velocity = dir.normalized * vel;
+                }
             }
         }
     }
+
+    void procurar() { procPos = true; }
 
     void Attack()
     {
-        if (pt != null)
+        RaycastHit2D visao = Physics2D.Raycast(transform.position, Player.position - transform.position, distSegue);
+
+        if (visao)
         {
-            pt.vida -= dano;
-            Debug.Log("Bati");
+            if (visao.transform.tag == "Player")
+            {
+                Player.CausarDano(dano);
+                Debug.Log("Atirei");
+            }
         }
     }
 
     void FimAttack() { attackAble = true; }
+
+    void Lock() { playerLast = Player.position; attacking = false; }
+
+
+}
+
+
+public static class Vector2Extension
+{
+
+    public static Vector2 Rotate(this Vector2 v, float degrees)
+    {
+        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
+
+        float tx = v.x;
+        float ty = v.y;
+        v.x = (cos * tx) - (sin * ty);
+        v.y = (sin * tx) + (cos * ty);
+        return v;
+    }
 }

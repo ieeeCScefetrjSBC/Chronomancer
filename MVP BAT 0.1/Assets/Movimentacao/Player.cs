@@ -150,6 +150,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public static void CausarDano(float DanoC)
+    {
+        Insta.vida -= DanoC;
+    }
+
     public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
