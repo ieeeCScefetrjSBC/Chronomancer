@@ -14,7 +14,7 @@ public class MapManager : MonoBehaviour {
     public Tunnelers.Config config;
 
 
-    private void Awake()
+    private void Start()
     {
         Tunnelers map = new Tunnelers();
         map.c = config;
