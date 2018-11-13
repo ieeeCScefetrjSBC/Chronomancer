@@ -29,6 +29,7 @@ public class Tunnelers {
     public byte[,] map;
     Vector2Int[] dirs = { Vector2Int.down, Vector2Int.left, Vector2Int.right, Vector2Int.up };
     public Vector2Int begin;
+    public Vector2Int end;
     Vector2Int n;
     int tCount;
 
@@ -44,6 +45,9 @@ public class Tunnelers {
             new P(begin.x, begin.y, dirs[3]),
             new P(Random.Range(2, c.width - 2), c.height - 2, dirs[0])
         };
+
+        end = new Vector2Int(vec[1].x, vec[1].y);
+
         for(int i = 0; i < vec.Count; i++) map[vec[i].x, vec[i].y] = 1;
         for (int j = 0; j < 5; j++)
             vec.Add(new P(Random.Range(2 + 5, c.width - 5 - 2), Random.Range(2 + 5, c.width - 5 - 2), dirs[Random.Range(0, 4)]));
