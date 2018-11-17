@@ -172,7 +172,7 @@ SpriteRenderer:
   m_Size: {x: 7.3, y: 5.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &173123022
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_Size: {x: 1.1, y: 1.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &598448178
@@ -339,6 +339,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1102173988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102173989}
+  m_Layer: 0
+  m_Name: SpawPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102173989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102173988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.43, y: 2.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1266205257
 GameObject:
@@ -412,7 +440,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1266205260
@@ -501,6 +529,7 @@ GameObject:
   - component: {fileID: 1740607500}
   - component: {fileID: 1740607503}
   - component: {fileID: 1740607502}
+  - component: {fileID: 1740607504}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -551,7 +580,7 @@ SpriteRenderer:
   m_Size: {x: 0.98, y: 1.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1740607501
@@ -599,3 +628,25 @@ MonoBehaviour:
   delaySkill1: 1
   delaySkill2: 1
   delaySkill3: 1
+--- !u!114 &1740607504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1740607499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de002ee052eed8349acdc8b6cde5c42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLord: 1
+  timeDilation: 2
+  watchNmuber: 1
+  enemieNumber: 1
+  enemies:
+  - {fileID: 1246259194200378, guid: f722a069a299ef04393282eb7319c054, type: 2}
+  watches:
+  - {fileID: 1786293335550148, guid: 02f0a46d0d88e484083a09ab22e5b2f6, type: 2}
+  spawPoints: {fileID: 1102173989}
+  CyberPunk: 0
+  Viking: 0

@@ -48,6 +48,7 @@ public class BossMech : MonoBehaviour {
     {
         animator.SetBool("Attack1", true);
         yield return new WaitForSeconds(delaySkill1);
+        SkillBoss.skill1();
         animator.SetBool("Attack1c", true);
         animator.SetBool("Attack1", false);
         
@@ -63,6 +64,7 @@ public class BossMech : MonoBehaviour {
 
         animator.SetBool("Attack2", true);
         yield return new WaitForSeconds(delaySkill2);
+        SkillBoss.skill2();
         animator.SetBool("Attack2c", true);
         animator.SetBool("Attack2", false);
 
@@ -77,6 +79,7 @@ public class BossMech : MonoBehaviour {
     {
         animator.SetBool("Attack3", true);
         yield return new WaitForSeconds(delaySkill3);
+        SkillBoss.skill3();
         animator.SetBool("Attack3c", true);
         animator.SetBool("Attack3", false);
 

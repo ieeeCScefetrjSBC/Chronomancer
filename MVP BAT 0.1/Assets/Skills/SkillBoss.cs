@@ -6,17 +6,34 @@ public class SkillBoss : MonoBehaviour
 {
     public const int idle = 0, slowM = 1, invokeE = 2, dropW = 3;
 
+    public bool TimeLord;
     public int timeDilation, watchNmuber, enemieNumber;
     public GameObject[] enemies, watches;
     public Transform spawPoints;
 
+    [Space] [Space] public bool CyberPunk;
+
+    [Space] [Space] public bool Viking;
+
+    public delegate void SkillB();
+
+    public static SkillB skill1, skill2, skill3;
+
+
     private int state;
 
-	void Start () {
-		
+	void Start ()
+	{
+	    if (TimeLord)
+	    {
+	        skill1 = SlowMotion;
+	        skill2 = InvokeEnemies;
+	        skill3 = DropWatches;
+	    }
 	}
 	
 	void Update () {
+
 
 
 	    switch (state)
