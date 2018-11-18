@@ -74,20 +74,57 @@ public class Player : MonoBehaviour
         float x = 0, y = 0, v = rb.velocity.magnitude;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && v < maxRunVel) y += RunVel;
-            if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && v < maxRunVel) y -= RunVel;
-            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && v < maxRunVel) x += RunVel;
-            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && v < maxRunVel) x -= RunVel;
+
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && v < maxRunVel)
+            {
+                y += RunVel;
+                Audiomanagerscript.PlaySound("walk");
+            }
+            if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && v < maxRunVel)
+            {
+                y -= RunVel;
+                Audiomanagerscript.PlaySound("walk");
+            }
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && v < maxRunVel)
+            {
+                x += RunVel;
+                Audiomanagerscript.PlaySound("walk");
+            }
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && v < maxRunVel)
+            {
+                x -= RunVel;
+                Audiomanagerscript.PlaySound("walk");
+            }
 
         }
         else
         {
-            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && v < maxVel) y += Vel;
-            if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && v < maxVel) y -= Vel;
-            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && v < maxVel) x += Vel;
-            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && v < maxVel) x -= Vel;
-        }
+
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && v < maxVel)
+            {
+                y += Vel;
+                Audiomanagerscript.PlaySound("walk");
+            }
+            if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && v < maxVel)
+            {
+                y -= Vel;
+                Audiomanagerscript.PlaySound("walk");
+            }
+
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && v < maxVel)
+            {
+                x += Vel;
+                Audiomanagerscript.PlaySound("walk");
+             }
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && v < maxVel)
+            {
+                x -= Vel;
+                Audiomanagerscript.PlaySound("walk");
+            }
+            }
+        
         rb.velocity += new Vector2(x, y);
+        
 
         if (v != 0) anim.enabled = true;
         else
@@ -108,6 +145,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && Time.time > skill1cdt + skill1CoolDown)
             {
+                
                 skill1cdt = Time.time;
                 skill1((Vector2)transform.position, dir, skill1Dura, skill1Dano, true);
             }
@@ -141,6 +179,7 @@ public class Player : MonoBehaviour
     public void descongelar2()
     {
         enabled = true;
+        Audiomanagerscript.PlaySound("ice");
         foreach (Transform t in transform)
         {
             if (t.tag == "Gelo")

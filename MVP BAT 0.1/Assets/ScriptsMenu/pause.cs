@@ -13,6 +13,7 @@ public class pause : MonoBehaviour {
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Audiomanagerscript.PlaySound("pause");
             if (GameIsPaused)
             {
                 Resume();

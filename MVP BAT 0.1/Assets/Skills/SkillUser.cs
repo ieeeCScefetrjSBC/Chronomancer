@@ -92,6 +92,7 @@ public class SkillUser : MonoBehaviour {
         r.dano = dano;
         r.pl = pl;
         r.Invoke("Finish", tempo);
+        Audiomanagerscript.PlaySound("ice");
     }
 
     public void Chain_Lightning(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
@@ -110,12 +111,15 @@ public class SkillUser : MonoBehaviour {
             {
                 i.vida -= dano;
             }
+            Audiomanagerscript.PlaySound("chain");
         }
     }
 
     public void Crippling_Oil(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
+        
         Instantiate(OleoG, transform.position + 15*((Vector3)dir), Quaternion.identity);
+        Audiomanagerscript.PlaySound("oil");
     }
 
     public void Meteor(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
@@ -125,10 +129,12 @@ public class SkillUser : MonoBehaviour {
         r.dano = dano;
         r.pl = pl;
         r.Invoke("Finish", tempo);
+        Audiomanagerscript.PlaySound("meteor");
     }
 
     public void Heavy_Rain(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
+       
         GameObject g = Instantiate(AreaRainG, transform.position + 15 * ((Vector3)dir), Quaternion.identity);
         RainRegion r = g.GetComponent<RainRegion>();
         r.dano = dano;
@@ -136,6 +142,7 @@ public class SkillUser : MonoBehaviour {
         r.Invoke("Finish", tempo);
         GameObject e = Instantiate(RainEffectG, transform.position + 15 * ((Vector3)dir) + new Vector3(0, 5, -10), Quaternion.Euler(-60, 0, 0));
         Destroy(e, tempo);
+        Audiomanagerscript.PlaySound("rain");
     }
 
 }

@@ -12,26 +12,31 @@ public class RainRegion : MonoBehaviour {
 
     private void Awake()
     {
+        
         col = GetComponent<Collider2D>();
     }
 
     public void Finish()
     {
+        
         Debug.Log("Fim");
         Destroy(gameObject);
     }
 
     private void Update()
     {
+        
         if(Time.time > time + 0.5f)
         {
             time = Time.time;
             col.enabled = !col.enabled;
+            
         }
     }
     
     private void OnTriggerEnter2D (Collider2D ou)
     {
+       
         if (ou.transform != null)
         {
             if (pl)
