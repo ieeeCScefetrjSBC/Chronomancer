@@ -1,22 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using ProBuilder2.Common;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+//using UnityEditor;
 
 public class SkillBoss : MonoBehaviour
 {
-    public const int idle = 0, slowM = 1, invokeE = 2, dropW = 3;
 
     public bool TimeLord;
+
     public int timeDilation, watchNmuber, enemieNumber;
     public GameObject[] enemies, watches;
-    public Transform spawPoints;
+    
 
     [Space] [Space] public bool CyberPunk;
 
+    public Transform centerArena;
+
+    private TrailRenderer tr;
+    private EdgeCollider2D ec;
+
+
     [Space] [Space] public bool Viking;
 
-    public delegate void SkillB();
+    public Transform spawPoints;
 
+
+
+    public delegate void SkillB();
     public static SkillB skill1, skill2, skill3;
 
 
@@ -24,44 +38,45 @@ public class SkillBoss : MonoBehaviour
 
 	void Start ()
 	{
+	    
 	    if (TimeLord)
 	    {
 	        skill1 = SlowMotion;
 	        skill2 = InvokeEnemies;
 	        skill3 = DropWatches;
 	    }
-	}
-	
-	void Update () {
 
-
-
-	    switch (state)
+	    if (CyberPunk)
 	    {
-            case idle:
-	            break;
-	        case slowM:
-	            SlowMotion();
-	            break;
-	        case invokeE:
-	            InvokeEnemies();
-                break;
-	        case dropW:
-	            DropWatches();
-                break;
-            default:
-                state = 0;
-                break;
+	        tr = GetComponent<TrailRenderer>();
+	        ec = GetComponent<EdgeCollider2D>();
+            InvokeRepeating("CalcPoints", 0.5f, 0.03f);
 
-        }
+	    }
 	}
+
+    void CalcPoints()
+    {
+        Vector2[] pontos = new Vector2[tr.positionCount];
+        for (int i = 0; i < tr.positionCount; i++)
+        {
+            pontos[i] = tr.GetPosition(i)-transform.position;
+        }
+
+        ec.points = pontos;
+
+        Debug.Log("as");
+        foreach (var p in pontos)
+        {
+            Debug.Log(p);
+        }
+    }
 
     void SlowMotion()
     {
         Player.Insta.maxRunVel *= timeDilation;
         Player.Insta.maxVel *= timeDilation;
 
-        state = 0;
 
         Invoke("SlowMotionEnd", 5f);
     }
@@ -79,7 +94,6 @@ public class SkillBoss : MonoBehaviour
             Instantiate(enemies[Random.Range(0, enemies.Length)], Random.insideUnitCircle.normalized * Random.Range(2, 10), Quaternion.identity);
         }
 
-        state = 0;
     }
 
     void DropWatches()
@@ -89,6 +103,21 @@ public class SkillBoss : MonoBehaviour
             Instantiate(watches[Random.Range(0, watches.Length)], Random.insideUnitCircle.normalized * Random.Range(2, 10), Quaternion.identity);
         }
 
-        state = 0;
+       
     }
 }
+
+//[CustomEditor(typeof(SkillBoss))]
+//public class SkillBossEditor : Editor
+//{
+//    override public void OnInspectorGUI()
+//    {
+//        var sb = target as SkillBoss;
+
+//        sb.TimeLord = GUILayout.Toggle(sb.TimeLord, " TimeLord");
+
+//        if (sb.TimeLord)
+//            sb.timeDilation = EditorGUILayout.IntSlider("Time Dilation:", sb.timeDilation, 1, 10);
+
+//    }
+//}
