@@ -322,6 +322,9 @@ MonoBehaviour:
   - {fileID: 1786293335550148, guid: 02f0a46d0d88e484083a09ab22e5b2f6, type: 2}
   CyberPunk: 1
   centerArena: {fileID: 0}
+  Gelo: {fileID: 1015819258953708, guid: 48d67b462bf17704bad7d2a88f5913a9, type: 2}
+  danoGelo: 50
+  tempoGelo: 1
   Viking: 0
   spawPoints: {fileID: 1102173989}
 --- !u!95 &311215393
@@ -353,9 +356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fdad0df76296441bb163b71383ccf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delaySkill1: 1
-  delaySkill2: 1
-  delaySkill3: 1
+  Skill1Duration: 1
+  Skill1Call: 1
+  Skill2Duration: 1
+  Skill2Call: 1
+  Skill3Duration: 1
+  Skill3Call: 1
 --- !u!212 &311215395
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5648,9 +5654,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fdad0df76296441bb163b71383ccf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delaySkill1: 1
-  delaySkill2: 1
-  delaySkill3: 1
+  Skill1Duration: 1
+  Skill1Call: 1
+  Skill2Duration: 1
+  Skill2Call: 1
+  Skill3Duration: 1
+  Skill3Call: 1
 --- !u!114 &1740607504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,5 +5681,8 @@ MonoBehaviour:
   - {fileID: 1786293335550148, guid: 02f0a46d0d88e484083a09ab22e5b2f6, type: 2}
   CyberPunk: 0
   centerArena: {fileID: 0}
+  Gelo: {fileID: 0}
+  danoGelo: 0
+  tempoGelo: 0
   Viking: 0
   spawPoints: {fileID: 1102173989}

@@ -135,9 +135,12 @@ public class Player : MonoBehaviour
 
         Vector3 a = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position);
 
+        float zAng = Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg - 90;
 
+        transform.rotation = Quaternion.Euler(0, 0, zAng);
 
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg - 90);
+        // int dirVar = zAng % 90;
+        // ANIMATOR.setfloat("Direção", dirVar);
 
         //Skills
         Vector2 dir = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position).normalized;

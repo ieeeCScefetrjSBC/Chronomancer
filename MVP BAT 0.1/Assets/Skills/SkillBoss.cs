@@ -19,6 +19,9 @@ public class SkillBoss : MonoBehaviour
     [Space] [Space] public bool CyberPunk;
 
     public Transform centerArena;
+    public List<Transform> positionsMovement; 
+    public GameObject Gelo;
+    public float danoGelo, tempoGelo;
 
     private TrailRenderer tr;
     private EdgeCollider2D ec;
@@ -50,7 +53,7 @@ public class SkillBoss : MonoBehaviour
 	    {
 	        tr = GetComponent<TrailRenderer>();
 	        ec = GetComponent<EdgeCollider2D>();
-            InvokeRepeating("CalcPoints", 0.5f, 0.03f);
+            InvokeRepeating("CalcPoints", 0.5f, 0.02f);
 
 	    }
 	}
@@ -65,11 +68,7 @@ public class SkillBoss : MonoBehaviour
 
         ec.points = pontos;
 
-        Debug.Log("as");
-        foreach (var p in pontos)
-        {
-            Debug.Log(p);
-        }
+
     }
 
     void SlowMotion()
@@ -105,7 +104,30 @@ public class SkillBoss : MonoBehaviour
 
        
     }
+
+    private void OnTriggerEnter2D(Collider2D ou)
+    {
+        if (CyberPunk)
+        {
+            Quimica qui = ou.transform.GetComponent<Quimica>();
+            if (qui != null) qui.humidade = 1;
+            Player i = ou.transform.gameObject.GetComponent<Player>();
+            if (i != null)
+            {
+                i.enabled = false;
+                Instantiate(Gelo, ou.transform);
+                i.descongelar(tempoGelo);
+
+
+                Player.CausarDano(danoGelo);//Causar Dano
+            }
+        }
+    }
+
+    
 }
+
+
 
 //[CustomEditor(typeof(SkillBoss))]
 //public class SkillBossEditor : Editor

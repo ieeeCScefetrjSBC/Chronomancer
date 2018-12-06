@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BossMech : MonoBehaviour {
 
-    public float delaySkill1;
-    public float delaySkill2;
-    public float delaySkill3;
+    public float Skill1Duration = 1, Skill1Call = 1;
+    public float Skill2Duration = 1, Skill2Call = 1;
+    public float Skill3Duration = 1, Skill3Call = 1;
+
 
     Animator animator;
 
     bool skillPlaying = false;
-	// Use this for initialization
-	void Start () {
+
+    void Start () {
         animator = GetComponent<Animator>();
         
 	}
@@ -24,7 +25,7 @@ public class BossMech : MonoBehaviour {
         if (!skillPlaying)
         {
             skillPlaying = true;
-            int val = Random.Range(0, 3);
+            int val = Random.Range(0, 4);
 
             switch (val)
             {
@@ -37,6 +38,9 @@ public class BossMech : MonoBehaviour {
                 case 2:
                     StartCoroutine("UseSkill3");
                     break;
+                default:
+                    StartCoroutine("Move");
+                    break;
             }
         }
         
@@ -44,15 +48,20 @@ public class BossMech : MonoBehaviour {
 
 	}
 
-    IEnumerator UseSkill1()
+    IEnumerator Move()
+    {
+        yield return 0;
+    }
+
+        IEnumerator UseSkill1()
     {
         animator.SetBool("Attack1", true);
-        yield return new WaitForSeconds(delaySkill1);
+        yield return new WaitForSeconds(Skill1Call);
         if (SkillBoss.skill1 != null) SkillBoss.skill1();
         animator.SetBool("Attack1c", true);
         animator.SetBool("Attack1", false);
         
-        yield return new WaitForSeconds(delaySkill1);
+        yield return new WaitForSeconds(Skill1Duration);
 
         animator.SetBool("Attack1", false);
         animator.SetBool("Attack1c", false);
@@ -63,12 +72,12 @@ public class BossMech : MonoBehaviour {
     {
 
         animator.SetBool("Attack2", true);
-        yield return new WaitForSeconds(delaySkill2);
+        yield return new WaitForSeconds(Skill2Call);
         if (SkillBoss.skill2 != null) SkillBoss.skill2();
         animator.SetBool("Attack2c", true);
         animator.SetBool("Attack2", false);
 
-        yield return new WaitForSeconds(delaySkill2);
+        yield return new WaitForSeconds(Skill1Duration);
 
         animator.SetBool("Attack2", false);
         animator.SetBool("Attack2c", false);      
@@ -78,12 +87,12 @@ public class BossMech : MonoBehaviour {
     IEnumerator UseSkill3()
     {
         animator.SetBool("Attack3", true);
-        yield return new WaitForSeconds(delaySkill3);
+        yield return new WaitForSeconds(Skill3Call);
         if(SkillBoss.skill3 != null) SkillBoss.skill3();
         animator.SetBool("Attack3c", true);
         animator.SetBool("Attack3", false);
 
-        yield return new WaitForSeconds(delaySkill3);
+        yield return new WaitForSeconds(Skill1Duration);
 
         animator.SetBool("Attack3", false);
         animator.SetBool("Attack3c", false);
