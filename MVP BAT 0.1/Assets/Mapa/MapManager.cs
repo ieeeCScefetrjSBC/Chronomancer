@@ -11,6 +11,7 @@ public class MapManager : MonoBehaviour {
 
     public GameObject player;
     public GameObject floor;
+    public GameObject cruzamento;
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
@@ -47,8 +48,32 @@ public class MapManager : MonoBehaviour {
 
         for (int x = 0; x < config.width; x++) for (int y = 0; y < config.height; y++) if (map.map[x, y] == 2)
                 {
-                    GameObject reference = Instantiate(floor, new Vector3(x, y, 0) * 40, Quaternion.identity);
+
+                    bool h = false;
+                    bool v = false;
+
+                    if (map.map[x, y - 1] == 2) h = true;
+                    if (map.map[x, y + 1] == 2) h = true;
+                    if (map.map[x - 1, y] == 2) v = true;
+                    if (map.map[x + 1, y] == 2) v = true;
+
+                    GameObject reference;
+
+                    if (h && v)
+                    {
+                        reference = Instantiate(cruzamento, new Vector3(x, y, 0) * 40, Quaternion.identity);
+                    }
+                    else
+                    {
+                        reference = Instantiate(floor, new Vector3(x, y, 0) * 40, Quaternion.identity);
+                    }
+
                     reference.transform.parent = holder;
+
+                    if (map.map[x, y - 1] != 2 && map.map[x, y + 1] != 2)
+                    {
+                        reference.transform.Rotate(Vector3.forward, 90);
+                    }
 
                     if (map.map[x - 1, y] != 2)
                     {
@@ -71,6 +96,9 @@ public class MapManager : MonoBehaviour {
                         instance = Instantiate(paredeH, reference.transform.position + Vector3.back + Vector3.down * (40 / 2), Quaternion.identity);
                         instance.transform.parent = holder;
                     }
+
+                    
+
 
                     if (Random.value < 0.05f)
                     {

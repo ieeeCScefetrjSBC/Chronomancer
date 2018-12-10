@@ -5064,6 +5064,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1294389049456370, guid: 8b8cbc3901d49764098258a9fb28bf67, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610550277504244, guid: 8b8cbc3901d49764098258a9fb28bf67, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8cbc3901d49764098258a9fb28bf67, type: 2}
   m_IsPrefabAsset: 0
@@ -52605,7 +52613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &834285492
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -58748,7 +58756,7 @@ ParticleSystem:
     flipV: 0
     randomRow: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: cf888b9035533f64dbd0eacab2e57b7c, type: 3}
+    - sprite: {fileID: 21300000, guid: 4df5ccef87013864ca262cec30dc5c71, type: 3}
   VelocityModule:
     enabled: 1
     x:
@@ -86100,7 +86108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1492896955
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -86671,7 +86679,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.3089969
+      scalar: 0.5235988
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -87553,7 +87561,7 @@ ParticleSystem:
     flipV: 0
     randomRow: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: cf888b9035533f64dbd0eacab2e57b7c, type: 3}
+    - sprite: {fileID: 21300000, guid: b6449adbd0328a74ba98f8454cf9882a, type: 3}
   VelocityModule:
     enabled: 1
     x:
