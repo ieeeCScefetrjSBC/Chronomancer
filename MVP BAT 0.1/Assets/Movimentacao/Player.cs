@@ -78,22 +78,19 @@ public class Player : MonoBehaviour
             if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && v < maxRunVel)
             {
                 y += RunVel;
-                Audiomanagerscript.PlaySound("walk");
+                
             }
             if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && v < maxRunVel)
             {
                 y -= RunVel;
-                Audiomanagerscript.PlaySound("walk");
             }
             if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && v < maxRunVel)
             {
                 x += RunVel;
-                Audiomanagerscript.PlaySound("walk");
             }
             if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && v < maxRunVel)
             {
                 x -= RunVel;
-                Audiomanagerscript.PlaySound("walk");
             }
 
         }
@@ -103,44 +100,38 @@ public class Player : MonoBehaviour
             if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && v < maxVel)
             {
                 y += Vel;
-                Audiomanagerscript.PlaySound("walk");
             }
             if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && v < maxVel)
             {
                 y -= Vel;
-                Audiomanagerscript.PlaySound("walk");
             }
 
             if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && v < maxVel)
             {
                 x += Vel;
-                Audiomanagerscript.PlaySound("walk");
              }
             if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && v < maxVel)
             {
                 x -= Vel;
-                Audiomanagerscript.PlaySound("walk");
             }
             }
         
         rb.velocity += new Vector2(x, y);
-        
 
-        if (v != 0) anim.enabled = true;
-        else
-        {
-            anim.enabled = false;
-            spr.sprite = sp;
-        }
+        if (Mathf.Approximately(0,v)) anim.SetInteger("Velocity", 0);
+        else if(v<= 200) anim.SetInteger("Velocity", 1); //Ajeitar '''''''''''''''''''''''''''''''
+        else anim.SetInteger("Velocity", 2);
 
         Vector3 a = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position);
 
-        float zAng = Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg - 90;
+        float zAng = Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, zAng);
+        //transform.rotation = Quaternion.Euler(0, 0, zAng);
 
-        // int dirVar = zAng % 90;
-        // ANIMATOR.setfloat("Direção", dirVar);
+        int dirVar = (zAng < 45 && zAng > -45)? 0 : ( (zAng < 135 && zAng > 45) ? 1 : (zAng < -135 || zAng > 135) ? 2 : 3);
+        anim.SetInteger("Direction", dirVar);
+
+        Debug.Log(dirVar);
 
         //Skills
         Vector2 dir = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position).normalized;
