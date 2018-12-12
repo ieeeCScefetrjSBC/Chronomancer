@@ -11,15 +11,38 @@ MonoBehaviour:
   m_Script: {fileID: 146836576, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: ProBuilderPreferences
   m_EditorClassIdentifier: 
-  m_Bool_keys: []
-  m_Int_keys: []
-  m_Float_keys: []
-  m_String_keys: []
+  m_Bool_keys:
+  - pbEnableBackfaceSelection
+  - pbUVMaterialPreview
+  - pb_UVTemplate_transparentBackground
+  - pb_UVTemplate_hideGrid
+  - pbShowDetail
+  - pbShowMover
+  - pbGenerateUV2PerObject
+  - pbDisableAutoUV2Generation
+  m_Int_keys:
+  - pbDefaultEditLevel
+  - pb_GIWorkflowMode
+  - pb_UVTemplate_imageSize
+  - pbDefaultSelectionMode
+  - pbHandleAlignment
+  m_Float_keys:
+  - pbEditorScroll.x
+  - pbEditorScroll.y
+  m_String_keys:
+  - pbCurrentMaterialPalette
+  - pb_UVTemplate_lineColor
+  - pb_UVTemplate_backgroundColor
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 
-  m_Int_values: 
-  m_Float_values: []
-  m_String_values: []
+  m_Bool_values: 0001010101010001
+  m_Int_values: 0000000001000000000100000000000000000000
+  m_Float_values:
+  - 0
+  - 0
+  m_String_values:
+  - Assets/ProCore/ProBuilder/Data/Default Material Palette.asset
+  - RGBA(1.000, 1.000, 1.000, 1.000)
+  - RGBA(1.000, 1.000, 1.000, 1.000)
   m_Color_values: []
   m_Material_values: []

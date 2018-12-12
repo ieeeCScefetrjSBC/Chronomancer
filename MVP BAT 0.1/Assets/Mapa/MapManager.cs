@@ -15,7 +15,10 @@ public class MapManager : MonoBehaviour {
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
+    public GameObject predio;
+
     public GameObject[] inimigos;
+    
     public Tunnelers.Config config;
 
     public Transform holder;
@@ -97,7 +100,7 @@ public class MapManager : MonoBehaviour {
                         instance.transform.parent = holder;
                     }
 
-                    
+
 
 
                     if (Random.value < 0.05f)
@@ -105,6 +108,17 @@ public class MapManager : MonoBehaviour {
                         instance = Instantiate(inimigos[(int)Mathf.Round(Random.value * (inimigos.Length - 1))], reference.transform.position + Vector3.back, Quaternion.identity);
                         instance.transform.parent = holder;
                     }
+
+                }
+                else
+                {
+
+                    GameObject i = Instantiate(predio);
+                    Vector3 scale = i.transform.localScale;
+                    scale.z = Random.Range(2, 4);
+                    i.transform.localScale = scale;
+
+                    i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(35, 0, 5 * i.transform.localScale.z);
 
                 }
 
