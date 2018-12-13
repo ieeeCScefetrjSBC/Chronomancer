@@ -17,6 +17,7 @@ public class IATeste1 : Inimigo {
     private float skill1TellTime;
 
     private SkillUser skills;
+    private Animator anim;
     private bool skill1Able = true;
     private Vector2 dirF;
 
@@ -24,7 +25,8 @@ public class IATeste1 : Inimigo {
     void Start () {
         StartCode();
         skills = GetComponent<SkillUser>();
-    }
+        anim = GetComponent<Animator>();
+        }
 	
 	void Update () {
         UpdateCode();
@@ -32,9 +34,40 @@ public class IATeste1 : Inimigo {
         Vector3 dir = (Player.position - transform.position);
 	    if (dir.magnitude > distSegue.x && dir.magnitude < distSegue.y)
 	    {
-	        if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
-	        Vector2 dir1 = (PathFinding.instance.path[0] - transform.position);
-	        rb.velocity = dir1.normalized * vel;
+            anim.SetInteger("Velocity", 1);
+
+            Vector2 dir1;
+
+            var h = Physics2D.Raycast(transform.position, dir);
+
+            if (h != null)
+            {
+                if (h.transform.tag != "Player")
+                {
+                    if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
+                    dir1 = (PathFinding.instance.path[0] - transform.position);
+                }
+                else
+                {
+                    dir1 = dir;
+                }
+                
+            }
+            else
+            {
+                if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
+                dir1 = (PathFinding.instance.path[0] - transform.position);
+            }
+
+            rb.velocity = dir1.normalized * vel;
+
+            float zAng = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            int dirVar = (zAng < 45 && zAng > -45) ? 0 : ((zAng < 135 && zAng > 45) ? 1 : (zAng < -135 || zAng > 135) ? 2 : 3);
+            anim.SetInteger("Direction", dirVar);
+        }
+        else
+        {
+            anim.SetInteger("Velocity", 0);
         }
 
         if (dir.magnitude <= distSegue.x) rb.velocity *= 0.5f;

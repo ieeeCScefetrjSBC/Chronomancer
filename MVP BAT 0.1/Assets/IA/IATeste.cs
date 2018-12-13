@@ -17,34 +17,49 @@ public class IATeste : Inimigo
     [SerializeField]
     private float callTime;
 
+    private Animator anim;
     private bool attackAble = true;
     private bool attacking = false;
 
     void Start()
     {
         StartCode();
-        
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         UpdateCode();
 
-        if ((Player.position - transform.position).magnitude > distSegue.y) return;
+        Vector3 dir = (Player.position - transform.position);
 
-        if ((Player.position - transform.position).magnitude < distSegue.x && attackAble)
+        float zAng = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        int dirVar = (zAng < 45 && zAng > -45) ? 0 : ((zAng < 135 && zAng > 45) ? 1 : (zAng < -135 || zAng > 135) ? 2 : 3);
+        anim.SetInteger("Direction", dirVar);
+
+        if (dir.magnitude > distSegue.y)
+        {
+            anim.SetInteger("Velocity", 0);
+            return;
+        }
+
+        if (dir.magnitude < distSegue.x && attackAble)
         {
             attackAble = false;
             Invoke("Attack", callTime);
             Invoke("FimAttack", attackTime);
-            Debug.Log("Vou Bater");
         }
 
-        if (!attackAble) return;
+        if (!attackAble){
+            anim.SetInteger("Velocity", 0);
+            return;
+        }
+
+        anim.SetInteger("Velocity", 1);
 
         if (!PathFinding.instance.FindPath(transform.position, Player.position)) return;
-        Vector2 dir = (PathFinding.instance.path[0] - transform.position);
-        rb.velocity = dir.normalized * vel;
+        Vector2 dir1 = (PathFinding.instance.path[0] - transform.position);
+        rb.velocity = dir1.normalized * vel;
 
     }
 
@@ -57,7 +72,6 @@ public class IATeste : Inimigo
             if (p != null && attacking)
             {
                 Player.CausarDano(dano);
-                Debug.Log("Acertei");
             }
         }
     }

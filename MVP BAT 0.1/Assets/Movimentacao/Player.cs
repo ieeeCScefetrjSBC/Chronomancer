@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
         rb.velocity += new Vector2(x, y);
 
         if (Mathf.Approximately(0,v)) anim.SetInteger("Velocity", 0);
-        else if(v<= 200) anim.SetInteger("Velocity", 1); //Ajeitar '''''''''''''''''''''''''''''''
+        else if(v<= maxVel) anim.SetInteger("Velocity", 1); //Ajeitar '''''''''''''''''''''''''''''''
         else anim.SetInteger("Velocity", 2);
 
         Vector3 a = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position);
@@ -131,7 +131,6 @@ public class Player : MonoBehaviour
         int dirVar = (zAng < 45 && zAng > -45)? 0 : ( (zAng < 135 && zAng > 45) ? 1 : (zAng < -135 || zAng > 135) ? 2 : 3);
         anim.SetInteger("Direction", dirVar);
 
-        Debug.Log(dirVar);
 
         //Skills
         Vector2 dir = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position).normalized;

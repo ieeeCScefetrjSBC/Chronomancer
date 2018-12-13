@@ -134,7 +134,7 @@ MonoBehaviour:
   danoEletricidade: 5
   danoAgua: 1
   vel: 5
-  distSegue: {x: 15, y: 60}
+  distSegue: {x: 15, y: 110}
   dano: 10
   attackTime: 5
   callTime: 1.5

@@ -116,7 +116,7 @@ MonoBehaviour:
   danoEletricidade: 0
   danoAgua: 0
   vel: 5
-  distSegue: {x: 15, y: 50}
+  distSegue: {x: 15, y: 110}
   skillIdentifier: 1
   skill1Time: 5
   skill1TellTime: 0.6
@@ -136,6 +136,7 @@ MonoBehaviour:
   AreaIceBlock: {fileID: 0}
   AreaRain: {fileID: 0}
   AreaMeteor: {fileID: 0}
+  RainEffect: {fileID: 0}
 --- !u!114 &114588189669633618
 MonoBehaviour:
   m_ObjectHideFlags: 1
