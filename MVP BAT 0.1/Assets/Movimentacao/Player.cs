@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
     private float skill3cdt;
     private Animator anim;
     private SpriteRenderer spr;
-    private Sprite sp;
     private SkillUser skills;
 
     public delegate void SKILL(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl);
@@ -42,14 +41,16 @@ public class Player : MonoBehaviour
     public static SKILL skill3;
     public static SKILL skill4;
 
-
+    private void Awake()
+    {
+        if (Insta == null) Insta = this;
+    }
 
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
         skills = GetComponent<SkillUser>();
-        sp = spr.sprite;
 
         skill1 = skills.Heavy_Rain;
         skill3 = skills.Chain_Lightning;
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
 
         MapaCyber mc = FindObjectOfType<MapaCyber>();
         if (mc != null) transform.position = MapaCyber.sala[0].transform.position + Vector3.back;
-        if (Insta == null) Insta = this;
+        
     }
 	
 	void Update () {
