@@ -5,14 +5,15 @@ using UnityEngine;
 public class Cam : MonoBehaviour {
 
     public float Vel;
-    public float zIni;
+    private float zIni, yIni;
 
     void Start()
     {
         zIni = -transform.position.z;
+        yIni = -transform.position.z;
     }
 
 	void Update () {
-        transform.position += (Player.position + ((Player.vel.magnitude + zIni)*Vector3.back) + Player.vel / 2 - transform.position) * Vel;
+        transform.position += (Player.position + yIni*Vector3.down/2 + ((Player.vel.magnitude + zIni)*Vector3.back) + Player.vel / 2 - transform.position) * Vel;
 	}
 }

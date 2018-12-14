@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114588189669633618}
   - component: {fileID: 114507143447526850}
   - component: {fileID: 114542733939530308}
-  - component: {fileID: 95486715094470240}
+  - component: {fileID: 95398950748574878}
   m_Layer: 0
   m_Name: Inimigo2
   m_TagString: Untagged
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246259194200378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -295.88, y: 200.25, z: 0}
+  m_LocalPosition: {x: -158.41, y: 128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,7 +68,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58328670050192804
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.9
---- !u!95 &95486715094470240
+--- !u!95 &95398950748574878
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
