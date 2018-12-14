@@ -15,13 +15,33 @@ public class MapManager : MonoBehaviour {
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
-    public GameObject predio;
+
+    public bool viking;
+
+    public GameObject[] predios;
+    public GameObject[] casaviking;
 
     public GameObject[] inimigos;
     
     public Tunnelers.Config config;
 
     public Transform holder;
+
+    Vector2Int[] dirs = new Vector2Int[4]
+    {
+        Vector2Int.down,
+        Vector2Int.left,
+        Vector2Int.right,
+        Vector2Int.up
+    };
+
+	Vector3[] rotate = new Vector3[4]
+	{
+	    Vector3.down,
+	    Vector3.left,
+	    Vector3.right,
+	    new Vector3(.1f, 10, 0)
+	};
 
     private void Awake()
     {
@@ -100,9 +120,6 @@ public class MapManager : MonoBehaviour {
                         instance.transform.parent = holder;
                     }
 
-
-
-
                     if (Random.value < 0.05f)
                     {
                         instance = Instantiate(inimigos[(int)Mathf.Round(Random.value * (inimigos.Length - 1))], reference.transform.position + Vector3.back, Quaternion.identity);
@@ -112,13 +129,40 @@ public class MapManager : MonoBehaviour {
                 }
                 else
                 {
+                    for(int j = 0; j < dirs.Length; j++)
+                    {
+                        if(map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
+                        {
+                            GameObject i;
+                            if (viking)
+                            {
+                                int index = Random.Range(0, casaviking.Length);
+                                i = Instantiate(casaviking[index]);
+                                Vector3 scale = i.transform.localScale;
+                                scale.z = Random.Range(2, 4);
+                                //i.transform.localScale = scale;
 
-                    GameObject i = Instantiate(predio);
-                    Vector3 scale = i.transform.localScale;
-                    scale.z = Random.Range(2, 4);
-                    i.transform.localScale = scale;
+                                i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
 
-                    i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(35, 0, 5 * i.transform.localScale.z);
+                            }
+                            else
+                            {
+                                i = Instantiate( predios[Random.Range(0, predios.Length)]);
+                                Vector3 scale = i.transform.localScale;
+                                scale.z = Random.Range(2, 4);
+                                i.transform.localScale = scale;
+
+                                i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
+                            }
+
+                            i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
+                            i.transform.parent = holder;
+
+                            break;
+                        }
+                    }
+
+
 
                 }
 
