@@ -24,12 +24,20 @@ public class MapManager : MonoBehaviour {
     public Transform holder;
 
     Vector2Int[] dirs = new Vector2Int[4]
-                    {
-                        Vector2Int.down,
-                        Vector2Int.left,
-                        Vector2Int.right,
-                        Vector2Int.up
-                    };
+    {
+        Vector2Int.down,
+        Vector2Int.left,
+        Vector2Int.right,
+        Vector2Int.up
+    };
+
+	Vector3[] rotate = new Vector3[4]
+	{
+	    Vector3.down,
+	    Vector3.left,
+	    Vector3.right,
+	    new Vector3(.1f, 10, 0)
+	};
 
     private void Awake()
     {
@@ -128,7 +136,9 @@ public class MapManager : MonoBehaviour {
 
                             i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
 
-                            i.transform.rotation = Quaternion.FromToRotation((Vector2)dirs[0], (Vector2)dirs[j]);
+                            i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
+
+                            i.transform.parent = holder;
 
                             break;
                         }
