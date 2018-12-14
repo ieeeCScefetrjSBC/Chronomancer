@@ -113,7 +113,7 @@ public class IATeste2 : Inimigo
             if (visao.transform.tag == "Player")
             {
                 Player.CausarDano(dano);
-                Debug.Log("Atirei");
+                
             }
         }
     }
