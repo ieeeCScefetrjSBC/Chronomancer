@@ -103,7 +103,7 @@ public class Tunnelers {
         return new Vector2Int(d.y, d.x);
     }
 
-    bool InBounds(int x, int y)
+    public bool InBounds(int x, int y)
     {
         return !(x < 2 || y < 2 || x >= (c.width - 2) || y >= (c.height - 2));
     }

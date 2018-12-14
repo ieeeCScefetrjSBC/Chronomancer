@@ -15,7 +15,7 @@ public class MapManager : MonoBehaviour {
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
-    public GameObject predio;
+    public GameObject[] predios;
 
     public GameObject[] inimigos;
     
@@ -99,10 +99,7 @@ public class MapManager : MonoBehaviour {
                         instance = Instantiate(paredeH, reference.transform.position + Vector3.back + Vector3.down * (40 / 2), Quaternion.identity);
                         instance.transform.parent = holder;
                     }
-
-
-
-
+                    
                     if (Random.value < 0.05f)
                     {
                         instance = Instantiate(inimigos[(int)Mathf.Round(Random.value * (inimigos.Length - 1))], reference.transform.position + Vector3.back, Quaternion.identity);
@@ -112,13 +109,33 @@ public class MapManager : MonoBehaviour {
                 }
                 else
                 {
+                    Vector2Int[] dirs = new Vector2Int[4]
+                    {
+                        Vector2Int.down,
+                        Vector2Int.left,
+                        Vector2Int.right,
+                        Vector2Int.up
+                    };
 
-                    GameObject i = Instantiate(predio);
+
+                    GameObject i = Instantiate(predios[Random.Range(0, predios.Length)]);
                     Vector3 scale = i.transform.localScale;
                     scale.z = Random.Range(2, 4);
                     i.transform.localScale = scale;
 
-                    i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(35, 0, 5 * i.transform.localScale.z);
+                    i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
+
+                    for(int j = 0; j < dirs.Length; j++)
+                    {
+                        if(map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
+                        {
+                            i.transform.rotation = Quaternion.FromToRotation((Vector2)dirs[0], (Vector2)dirs[j]);
+
+                            break;
+                        }
+                    }
+
+
 
                 }
 

@@ -1320,7 +1320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -305.8761}
+  m_AnchoredPosition: {x: 175.35, y: -174.9226}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &165930346
@@ -1562,7 +1562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -218.48291}
+  m_AnchoredPosition: {x: 175.35, y: -124.944725}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &173884468
@@ -17289,7 +17289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -131.08975}
+  m_AnchoredPosition: {x: 175.35, y: -74.966835}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &775729725
@@ -30328,7 +30328,9 @@ MonoBehaviour:
   paredeV: {fileID: 1345467018}
   paredeH: {fileID: 1918222977}
   portal: {fileID: 129054576}
-  predio: {fileID: 1485108531029326, guid: b3d3b5b7d38b3ca45ad97135b12200cb, type: 2}
+  predios:
+  - {fileID: 1328281168574326, guid: 0bd20af2e36c72c498a5e9ada992a80d, type: 2}
+  - {fileID: 1485108531029326, guid: b3d3b5b7d38b3ca45ad97135b12200cb, type: 2}
   inimigos:
   - {fileID: 1849953320}
   - {fileID: 403448714}
@@ -30563,7 +30565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -43.696583}
+  m_AnchoredPosition: {x: 175.35, y: -24.988945}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1639234650
