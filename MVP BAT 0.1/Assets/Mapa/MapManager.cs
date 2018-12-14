@@ -23,6 +23,14 @@ public class MapManager : MonoBehaviour {
 
     public Transform holder;
 
+    Vector2Int[] dirs = new Vector2Int[4]
+                    {
+                        Vector2Int.down,
+                        Vector2Int.left,
+                        Vector2Int.right,
+                        Vector2Int.up
+                    };
+
     private void Awake()
     {
         if(p == null){
@@ -109,26 +117,17 @@ public class MapManager : MonoBehaviour {
                 }
                 else
                 {
-                    Vector2Int[] dirs = new Vector2Int[4]
-                    {
-                        Vector2Int.down,
-                        Vector2Int.left,
-                        Vector2Int.right,
-                        Vector2Int.up
-                    };
-
-
-                    GameObject i = Instantiate(predios[Random.Range(0, predios.Length)]);
-                    Vector3 scale = i.transform.localScale;
-                    scale.z = Random.Range(2, 4);
-                    i.transform.localScale = scale;
-
-                    i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
-
                     for(int j = 0; j < dirs.Length; j++)
                     {
                         if(map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
                         {
+                            GameObject i = Instantiate(predios[Random.Range(0, predios.Length)]);
+                            Vector3 scale = i.transform.localScale;
+                            scale.z = Random.Range(2, 4);
+                            i.transform.localScale = scale;
+
+                            i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
+
                             i.transform.rotation = Quaternion.FromToRotation((Vector2)dirs[0], (Vector2)dirs[j]);
 
                             break;
