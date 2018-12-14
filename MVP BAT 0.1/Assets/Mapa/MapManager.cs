@@ -152,13 +152,15 @@ public class MapManager : MonoBehaviour {
                             }
                         }
 
-                        if (!teste)
-                        {
-                            i = Instantiate(casaviking[1]);
-                            i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
-                            Arvrsssss(i);
-                            i.transform.parent = holder;
-                        }
+                 
+                        //SE A FASE VIKING ESTIVER TRAVANDO COMENTE O IF ABAIXO
+                        //if (!teste)
+                        //{
+                        //    i = Instantiate(casaviking[1]);
+                        //    i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
+                        //    Arvrsssss(i);
+                        //    i.transform.parent = holder;
+                        //}
 
                     }
                     else
@@ -202,6 +204,7 @@ public class MapManager : MonoBehaviour {
         {
             float x = Random.Range(-15, 15);
             float y = Random.Range(-15, 15);
+            arvrs.transform.GetChild(i).localScale = arvrs.transform.GetChild(i).localScale * Random.Range(.5f, 1.5f);
             arvrs.transform.GetChild(i).localPosition = new Vector3(x, y, 0);
         }
     }
