@@ -15,7 +15,11 @@ public class MapManager : MonoBehaviour {
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
+
+    public bool viking;
+
     public GameObject[] predios;
+    public GameObject[] casaviking;
 
     public GameObject[] inimigos;
     
@@ -115,7 +119,7 @@ public class MapManager : MonoBehaviour {
                         instance = Instantiate(paredeH, reference.transform.position + Vector3.back + Vector3.down * (40 / 2), Quaternion.identity);
                         instance.transform.parent = holder;
                     }
-                    
+
                     if (Random.value < 0.05f)
                     {
                         instance = Instantiate(inimigos[(int)Mathf.Round(Random.value * (inimigos.Length - 1))], reference.transform.position + Vector3.back, Quaternion.identity);
@@ -129,15 +133,29 @@ public class MapManager : MonoBehaviour {
                     {
                         if(map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
                         {
-                            GameObject i = Instantiate(predios[Random.Range(0, predios.Length)]);
-                            Vector3 scale = i.transform.localScale;
-                            scale.z = Random.Range(2, 4);
-                            i.transform.localScale = scale;
+                            GameObject i;
+                            if (viking)
+                            {
+                                int index = Random.Range(0, casaviking.Length);
+                                i = Instantiate(casaviking[index]);
+                                Vector3 scale = i.transform.localScale;
+                                scale.z = Random.Range(2, 4);
+                                //i.transform.localScale = scale;
 
-                            i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
+                                i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
+
+                            }
+                            else
+                            {
+                                i = Instantiate( predios[Random.Range(0, predios.Length)]);
+                                Vector3 scale = i.transform.localScale;
+                                scale.z = Random.Range(2, 4);
+                                i.transform.localScale = scale;
+
+                                i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
+                            }
 
                             i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
-
                             i.transform.parent = holder;
 
                             break;
