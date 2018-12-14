@@ -30477,7 +30477,7 @@ MonoBehaviour:
   - {fileID: 1485108531029326, guid: 058d886f9f29c754e82816ad96cf9634, type: 2}
   casaviking:
   - {fileID: 1730768733235486, guid: 7b3c4fe640b87824dab4c922e53fcce3, type: 2}
-  - {fileID: 1924453166122232, guid: 9d184aeae55d3c741a6f13b8d822cb55, type: 2}
+  - {fileID: 1121942455135804, guid: 06b68a3fbfcf5584a97a6e47bfa0aa4e, type: 2}
   inimigos:
   - {fileID: 1849953320}
   - {fileID: 403448714}
