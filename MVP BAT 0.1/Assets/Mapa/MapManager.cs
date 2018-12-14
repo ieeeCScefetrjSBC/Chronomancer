@@ -129,38 +129,61 @@ public class MapManager : MonoBehaviour {
                 }
                 else
                 {
-                    for(int j = 0; j < dirs.Length; j++)
+                    GameObject i;
+
+                    if (viking)
                     {
-                        if(map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
+
+                        bool teste = false;
+
+                        for (int j = 0; j < dirs.Length; j++)
                         {
-                            GameObject i;
-                            if (viking)
+                            if (map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
                             {
                                 int index = Random.Range(0, casaviking.Length);
                                 i = Instantiate(casaviking[index]);
-                                Vector3 scale = i.transform.localScale;
-                                scale.z = Random.Range(2, 4);
-                                //i.transform.localScale = scale;
 
                                 i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
-
+                                if(index == 1) Arvrsssss(i);
+                                else i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
+                                i.transform.parent = holder;
+                                teste = true;
+                                break;
                             }
-                            else
+                        }
+
+                        if (!teste)
+                        {
+                            i = Instantiate(casaviking[1]);
+                            i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
+                            Arvrsssss(i);
+                            i.transform.parent = holder;
+                        }
+
+                    }
+                    else
+                    {
+                        for (int j = 0; j < dirs.Length; j++)
+                        {
+                            if (map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
                             {
-                                i = Instantiate( predios[Random.Range(0, predios.Length)]);
+                                
+                                i = Instantiate(predios[Random.Range(0, predios.Length)]);
                                 Vector3 scale = i.transform.localScale;
                                 scale.z = Random.Range(2, 4);
                                 i.transform.localScale = scale;
 
                                 i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 5 * i.transform.localScale.z);
+
+                                i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
+                                i.transform.parent = holder;
+
+                                break;
                             }
-
-                            i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
-                            i.transform.parent = holder;
-
-                            break;
                         }
                     }
+
+                    
 
 
 
@@ -172,5 +195,15 @@ public class MapManager : MonoBehaviour {
         PathFinding.instance.InitMap(new Vector2(config.width * 40, config.height * 40));
     }
 
+
+    void Arvrsssss(GameObject arvrs)
+    {
+        for(int i = 0; i < arvrs.transform.childCount; i++)
+        {
+            float x = Random.Range(-15, 15);
+            float y = Random.Range(-15, 15);
+            arvrs.transform.GetChild(i).localPosition = new Vector3(x, y, 0);
+        }
+    }
 
 }
