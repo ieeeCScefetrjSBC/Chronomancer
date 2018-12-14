@@ -142,10 +142,16 @@ public class MapManager : MonoBehaviour {
                             {
                                 int index = Random.Range(0, casaviking.Length);
                                 i = Instantiate(casaviking[index]);
-
+                                
+                                if (index == 1) Arvrsssss(i);
+                                else
+                                {
+                                    Vector3 scale = i.transform.localScale;
+                                    scale.z = Random.Range(2, 4);
+                                    i.transform.localScale = scale;
+                                    i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
+                                }
                                 i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
-                                if(index == 1) Arvrsssss(i);
-                                else i.transform.rotation = Quaternion.FromToRotation(rotate[0], rotate[j]);
                                 i.transform.parent = holder;
                                 teste = true;
                                 break;
