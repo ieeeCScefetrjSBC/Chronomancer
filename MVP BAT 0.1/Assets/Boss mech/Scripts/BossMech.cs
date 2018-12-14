@@ -8,14 +8,20 @@ public class BossMech : MonoBehaviour {
     public float Skill2Duration = 1, Skill2Call = 1;
     public float Skill3Duration = 1, Skill3Call = 1;
 
+    [Space]
+    public float velocity;
+    public List<Transform> positionsMovement;
 
+    Rigidbody2D rb;
+    Transform Alvo;
     Animator animator;
 
     bool skillPlaying = false;
 
     void Start () {
+        rb  =  GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+        Alvo = positionsMovement[0];
 	}
 	
 	// Update is called once per frame
@@ -25,7 +31,7 @@ public class BossMech : MonoBehaviour {
         if (!skillPlaying)
         {
             skillPlaying = true;
-            int val = Random.Range(0, 4);
+            int val = Random.Range(0, 3);
 
             switch (val)
             {
@@ -39,21 +45,34 @@ public class BossMech : MonoBehaviour {
                     StartCoroutine("UseSkill3");
                     break;
                 default:
-                    StartCoroutine("Move");
                     break;
             }
+        }
+        else
+        {
+            Move();
         }
         
 
 
 	}
 
-    IEnumerator Move()
+    void StartMove()
     {
-        yield return 0;
+        Alvo = positionsMovement[Random.Range(0, positionsMovement.Count)];
+        
     }
 
-        IEnumerator UseSkill1()
+    void Move()
+    {
+        Vector2 dir = Alvo.position - transform.position;
+
+        rb.velocity = dir.normalized  * ((dir.magnitude < 2)? dir.magnitude : 2) * velocity;
+
+        if (Mathf.Approximately (dir.magnitude, 0f)) skillPlaying = false;
+    }
+
+    IEnumerator UseSkill1()
     {
         animator.SetBool("Attack1", true);
         yield return new WaitForSeconds(Skill1Call);
@@ -65,7 +84,7 @@ public class BossMech : MonoBehaviour {
 
         animator.SetBool("Attack1", false);
         animator.SetBool("Attack1c", false);
-        skillPlaying = false;
+        StartMove();
     }
 
     IEnumerator UseSkill2()
@@ -80,8 +99,8 @@ public class BossMech : MonoBehaviour {
         yield return new WaitForSeconds(Skill1Duration);
 
         animator.SetBool("Attack2", false);
-        animator.SetBool("Attack2c", false);      
-        skillPlaying = false;
+        animator.SetBool("Attack2c", false);
+        StartMove();
     }
 
     IEnumerator UseSkill3()
@@ -96,7 +115,7 @@ public class BossMech : MonoBehaviour {
 
         animator.SetBool("Attack3", false);
         animator.SetBool("Attack3c", false);
-        skillPlaying = false;
+        StartMove();
     }
 
 

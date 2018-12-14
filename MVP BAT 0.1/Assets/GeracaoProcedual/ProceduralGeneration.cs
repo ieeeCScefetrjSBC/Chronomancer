@@ -157,8 +157,7 @@ public class ProceduralGeneration : MonoBehaviour
             results[i] = stageLength;
             range[stageLength - minStageLength]++;
 
-            Debug.Log("stageLength: " + stageLength);
-            Debug.Log("numForks:    " + numForks);
+
 
             //Debug.Log("min:    " + min);
             //Debug.Log("max:    " + max);
@@ -168,7 +167,7 @@ public class ProceduralGeneration : MonoBehaviour
         foreach (int freq in range)
         {
             int num = minStageLength + Array.IndexOf(range, freq);
-            Debug.Log(num + ": " + freq);
+
 
         }
     }
@@ -232,7 +231,7 @@ public class ProceduralGeneration : MonoBehaviour
         }
         width = pivot - mu;
 
-        Debug.Log("width: " + width);
+
         return width;
     }
 

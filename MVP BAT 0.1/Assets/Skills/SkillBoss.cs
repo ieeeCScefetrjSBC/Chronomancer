@@ -7,13 +7,15 @@ using Random = UnityEngine.Random;
 
 //using UnityEditor;
 
-public class SkillBoss : MonoBehaviour
+public class SkillBoss : Inimigo
 {
 
     public bool TimeLord;
 
     public int timeDilation, watchNmuber, enemieNumber;
+   
     public GameObject[] enemies, watches;
+   
     
 
     [Space] [Space] public bool CyberPunk;
@@ -27,10 +29,6 @@ public class SkillBoss : MonoBehaviour
     private EdgeCollider2D ec;
 
 
-    [Space] [Space] public bool Viking;
-
-    public Transform spawPoints;
-
 
 
     public delegate void SkillB();
@@ -41,7 +39,7 @@ public class SkillBoss : MonoBehaviour
 
 	void Start ()
 	{
-	    
+        StartCode();
 	    if (TimeLord)
 	    {
 	        skill1 = SlowMotion;
@@ -57,6 +55,11 @@ public class SkillBoss : MonoBehaviour
 
 	    }
 	}
+
+    void Update()
+    {
+        UpdateCode();
+    }
 
     void CalcPoints()
     {
@@ -124,7 +127,7 @@ public class SkillBoss : MonoBehaviour
         }
     }
 
-    
+   
 }
 
 
