@@ -59,6 +59,7 @@ public class SkillBoss : Inimigo
     void Update()
     {
         UpdateCode();
+        if (vida <= 0) Deah.deah(false); //Vioria
     }
 
     void CalcPoints()
