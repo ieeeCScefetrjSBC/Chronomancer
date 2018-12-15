@@ -29,6 +29,11 @@ public class MenuSkills : MonoBehaviour {
         ini = transform.position;
     }
 
+    private void Update()
+    {
+        if (pause.SkillsDel && ocupado == null && skillNumber == 0) Destroy(gameObject);
+    }
+
     public void iniMover(){
         diff = transform.position - Input.mousePosition;
 
