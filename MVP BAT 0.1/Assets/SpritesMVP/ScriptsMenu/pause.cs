@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pause : MonoBehaviour {
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = false, SkillsDel;
     public GameObject pauseMenuUI;
     private void Start()
     {
@@ -31,6 +31,7 @@ public class pause : MonoBehaviour {
         Time.timeScale = 1f;
         GameIsPaused = false;
 
+        if (!SkillsDel) SkillsDel = true;
     }
    public void Pause()
     {
