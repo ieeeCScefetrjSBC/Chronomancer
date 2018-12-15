@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         if (Insta == null) Insta = this;
+        DontDestroyOnLoad(this);
+        SkillUser.Lord();
     }
 
     void Start () {

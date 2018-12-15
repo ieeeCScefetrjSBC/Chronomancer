@@ -10,6 +10,7 @@ public class Portal : MonoBehaviour {
         
         if(collision.tag == "Player")
         {
+            
             GameManager.GM.NextLevel();
         }
 

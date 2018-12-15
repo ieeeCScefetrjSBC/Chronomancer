@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            pause.SkillsDel = false;
             SceneManager.LoadScene("TimeLord");
         }
         

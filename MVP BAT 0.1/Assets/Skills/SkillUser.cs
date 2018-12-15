@@ -32,6 +32,15 @@ public class SkillUser : MonoBehaviour {
     public static Player.SKILL Heavy_Rain_del;
     public static Player.SKILL Meteor_del;
 
+    public static void Lord() {
+        var p = Player.Insta.GetComponent<SkillUser>();
+        GeloG = p.Gelo;
+        OleoG = p.Oleo;
+        AreaIceBlockG = p.AreaIceBlock;
+        AreaRainG = p.AreaRain;
+        AreaMeteorG = p.AreaMeteor;
+        RainEffectG = p.RainEffect;
+    }
 
     void Awake() {
         if (Gelo != null && GeloG == null) GeloG = Gelo;
