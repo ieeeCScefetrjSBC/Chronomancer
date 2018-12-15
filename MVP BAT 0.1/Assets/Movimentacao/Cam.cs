@@ -9,6 +9,7 @@ public class Cam : MonoBehaviour {
 
     void Start()
     {
+        Camera.main.aspect = 16 / 9;
         zIni = -transform.position.z;
         yIni = -transform.position.z;
     }

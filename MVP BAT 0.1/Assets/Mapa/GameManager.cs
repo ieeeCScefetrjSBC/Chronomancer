@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
     public bool gotPortalKey = true;
     public int level = 0;
+    public GameObject cy, vi;
 
     private void Awake()
     {
@@ -35,7 +36,10 @@ public class GameManager : MonoBehaviour {
     void Start () {
         s = Random.Range(0, 2);
         NextLevel();
-	}
+
+        if (s == 1) vi.SetActive(false);
+        else cy.SetActive(false);
+    }
 
     public void NextLevel()
     {

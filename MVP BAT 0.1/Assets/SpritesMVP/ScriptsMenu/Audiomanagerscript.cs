@@ -5,6 +5,8 @@ using UnityEngine;
 public class Audiomanagerscript : MonoBehaviour {
     public static AudioClip walksound, iceblocksound, chainsound, oilsound, meteorsound, rainsound,pausesound;
     static AudioSource audioSrc;
+
+    
     // Use this for initialization
 	void Start () {
         walksound = Resources.Load<AudioClip>("walk");
@@ -16,6 +18,8 @@ public class Audiomanagerscript : MonoBehaviour {
         pausesound = Resources.Load<AudioClip>("pause");
 
         audioSrc = GetComponent<AudioSource>();
+
+        
     }
 
     // Update is called once per frame

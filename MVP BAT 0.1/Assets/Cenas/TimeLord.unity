@@ -1979,6 +1979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   eventSystem: {fileID: 0}
+  cy: {fileID: 0}
+  vi: {fileID: 0}
 --- !u!114 &405426168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5211,6 +5213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   eventSystem: {fileID: 0}
+  cy: {fileID: 0}
+  vi: {fileID: 0}
 --- !u!114 &1230460463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6374,7 +6378,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cbaa177315fd98847bd0a2c7c1e419a5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d4cf04b9aac87a447ac618cc3d444d0a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6494,6 +6498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   eventSystem: {fileID: 0}
+  cy: {fileID: 0}
+  vi: {fileID: 0}
 --- !u!114 &1446947013
 MonoBehaviour:
   m_ObjectHideFlags: 0

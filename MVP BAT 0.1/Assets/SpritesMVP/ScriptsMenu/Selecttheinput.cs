@@ -9,10 +9,16 @@ public class Selecttheinput : MonoBehaviour {
 
     private bool buttonSelected;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public GameObject cy, vi;
+
+    // Use this for initialization
+    void Start () {
+        if (cy != null && vi != null)
+        {
+            if (Random.Range(0, 2) == 1) vi.SetActive(false);
+            else cy.SetActive(false);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
