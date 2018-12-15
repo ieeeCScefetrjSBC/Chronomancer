@@ -16,7 +16,7 @@ public class BossMech : MonoBehaviour {
     Transform Alvo;
     Animator animator;
 
-    bool skillPlaying = false;
+    public bool skillPlaying = false;
 
     void Start () {
         rb  =  GetComponent<Rigidbody2D>();
@@ -69,12 +69,13 @@ public class BossMech : MonoBehaviour {
 
         rb.velocity = dir.normalized  * ((dir.magnitude < 2)? dir.magnitude : 2) * velocity;
 
-        if (Mathf.Approximately (dir.magnitude, 0f)) skillPlaying = false;
+        if (dir.magnitude < 0.1f) skillPlaying = false;
     }
 
     IEnumerator UseSkill1()
     {
         animator.SetBool("Attack1", true);
+        StartMove();
         yield return new WaitForSeconds(Skill1Call);
         if (SkillBoss.skill1 != null) SkillBoss.skill1();
         animator.SetBool("Attack1c", true);
@@ -84,13 +85,14 @@ public class BossMech : MonoBehaviour {
 
         animator.SetBool("Attack1", false);
         animator.SetBool("Attack1c", false);
-        StartMove();
+        
     }
 
     IEnumerator UseSkill2()
     {
 
         animator.SetBool("Attack2", true);
+        StartMove();
         yield return new WaitForSeconds(Skill2Call);
         if (SkillBoss.skill2 != null) SkillBoss.skill2();
         animator.SetBool("Attack2c", true);
@@ -100,12 +102,12 @@ public class BossMech : MonoBehaviour {
 
         animator.SetBool("Attack2", false);
         animator.SetBool("Attack2c", false);
-        StartMove();
     }
 
     IEnumerator UseSkill3()
     {
         animator.SetBool("Attack3", true);
+        StartMove();
         yield return new WaitForSeconds(Skill3Call);
         if(SkillBoss.skill3 != null) SkillBoss.skill3();
         animator.SetBool("Attack3c", true);
@@ -115,7 +117,6 @@ public class BossMech : MonoBehaviour {
 
         animator.SetBool("Attack3", false);
         animator.SetBool("Attack3c", false);
-        StartMove();
     }
 
 
