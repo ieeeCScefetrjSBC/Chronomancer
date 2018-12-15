@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Cenas/Menu Inicial.unity
     guid: 60243d7327d49c84a99d6e9ce7a951fe
   - enabled: 1
+    path: Assets/Cenas/Dialogue.unity
+    guid: c9c2a94317037f9478aae34d71c09d54
+  - enabled: 1
     path: Assets/Cenas/CyberPunk.unity
     guid: cc06658ade604ba4fa566e66cc955eb3
   - enabled: 1
     path: Assets/Cenas/TimeLord.unity
     guid: 30034b1efe41da54893599a0a02c824e
+  - enabled: 1
+    path: Assets/Cenas/Credits.unity
+    guid: de69a9ebdb361ca428a5c10f39c1bad7
   m_configObjects: {}

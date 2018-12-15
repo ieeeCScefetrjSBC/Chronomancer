@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
         {
             MapManager.MM.InitMap(sequence[s, level]);
             level++;
+            pause.SkillsDel = false;
         }
         else
         {
