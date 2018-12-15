@@ -64,11 +64,15 @@ public class Player : MonoBehaviour
 	void Update () {
         position = transform.position;
         vel = rb.velocity;
-        if (vida <= 0) enabled = false;
+        if (vida <= 0)
+        {
+            enabled = false;
+            Deah.deah(true);
+        }
 
 
 
-	}
+    }
 
     void FixedUpdate()
     {
