@@ -6,20 +6,25 @@ public class MapManager : MonoBehaviour {
 
     // Use this for initialization
 
-    static public MapManager p; 
+    static public MapManager p;
 
-
+    public GameObject background;
     public GameObject player;
-    public GameObject floor;
-    public GameObject cruzamento;
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
 
     public bool viking;
 
-    public GameObject[] predios;
-    public GameObject[] casaviking;
+    public Color32 cyberpunkBackgroundColor;
+    public GameObject cyberpunkFloor;
+    public GameObject cyberpunkCruzamento;
+    public GameObject[] cyberpunkScenario;
+
+    public Color32 vikingBackgroundColor;
+    public GameObject vikingFloor;
+    public GameObject vikingCruzamento;
+    public GameObject[] vikingScenario;
 
     public GameObject[] inimigos;
     
@@ -68,6 +73,22 @@ public class MapManager : MonoBehaviour {
         map.Generate();
 
         GameObject instance;
+        GameObject cruzamento;
+        GameObject floor;
+
+        if (viking)
+        {
+            background.GetComponent<SpriteRenderer>().color = vikingBackgroundColor;
+            floor = vikingFloor;
+            cruzamento = vikingCruzamento;
+        }
+        else
+        {
+            background.GetComponent<SpriteRenderer>().color = cyberpunkBackgroundColor;
+            floor = cyberpunkFloor;
+            cruzamento = cyberpunkCruzamento;
+        }
+        
 
         for (int x = 0; x < config.width; x++) for (int y = 0; y < config.height; y++) if (map.map[x, y] == 2)
                 {
@@ -134,14 +155,14 @@ public class MapManager : MonoBehaviour {
                     if (viking)
                     {
 
-                        bool teste = false;
+                        //bool teste = false;
 
                         for (int j = 0; j < dirs.Length; j++)
                         {
                             if (map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
                             {
-                                int index = Random.Range(0, casaviking.Length);
-                                i = Instantiate(casaviking[index]);
+                                int index = Random.Range(0, vikingScenario.Length);
+                                i = Instantiate(vikingScenario[index]);
                                 
                                 if (index == 1) Arvrsssss(i);
                                 else
@@ -153,7 +174,7 @@ public class MapManager : MonoBehaviour {
                                 }
                                 i.transform.position = new Vector3(x, y, 0) * 40 - new Vector3(0, 0, 2 * i.transform.localScale.z);
                                 i.transform.parent = holder;
-                                teste = true;
+                                //teste = true;
                                 break;
                             }
                         }
@@ -176,7 +197,7 @@ public class MapManager : MonoBehaviour {
                             if (map.InBounds(x + dirs[j].x, y + dirs[j].y) && map.map[x + dirs[j].x, y + dirs[j].y] == 2)
                             {
                                 
-                                i = Instantiate(predios[Random.Range(0, predios.Length)]);
+                                i = Instantiate(cyberpunkScenario[Random.Range(0, cyberpunkScenario.Length)]);
                                 Vector3 scale = i.transform.localScale;
                                 scale.z = Random.Range(2, 4);
                                 i.transform.localScale = scale;

@@ -866,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -244.7566}
+  m_AnchoredPosition: {x: 175.35, y: -469.2573}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &212798633
@@ -1441,7 +1441,7 @@ GameObject:
   - component: {fileID: 263654354}
   - component: {fileID: 263654353}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17994,7 +17994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -314.68564}
+  m_AnchoredPosition: {x: 175.35, y: -603.32935}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &757238061
@@ -18562,6 +18562,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ea1fdb1b9ba304f94c97841d628883, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &858753755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1142718747063844, guid: 95ea1fdb1b9ba304f94c97841d628883,
+    type: 2}
+  m_PrefabInternal: {fileID: 858753754}
 --- !u!1 &860242767
 GameObject:
   m_ObjectHideFlags: 0
@@ -18599,7 +18604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -104.898544}
+  m_AnchoredPosition: {x: 175.35, y: -201.11313}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &860242769
@@ -32040,17 +32045,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e664e80e7cd63004ab54e5982c2d15a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 263654352}
   player: {fileID: 452902501}
-  floor: {fileID: 1142718747063844, guid: 95ea1fdb1b9ba304f94c97841d628883, type: 2}
-  cruzamento: {fileID: 567325173}
   paredeV: {fileID: 1345467018}
   paredeH: {fileID: 1918222977}
   portal: {fileID: 129054576}
-  viking: 0
-  predios:
-  - {fileID: 1328281168574326, guid: 0bd20af2e36c72c498a5e9ada992a80d, type: 2}
+  viking: 1
+  cyberpunkBackgroundColor:
+    serializedVersion: 2
+    rgba: 4285936941
+  cyberpunkFloor: {fileID: 858753755}
+  cyberpunkCruzamento: {fileID: 567325173}
+  cyberpunkScenario:
   - {fileID: 1485108531029326, guid: 058d886f9f29c754e82816ad96cf9634, type: 2}
-  casaviking:
+  - {fileID: 1328281168574326, guid: 0bd20af2e36c72c498a5e9ada992a80d, type: 2}
+  vikingBackgroundColor:
+    serializedVersion: 2
+    rgba: 4279053143
+  vikingFloor: {fileID: 858753755}
+  vikingCruzamento: {fileID: 567325173}
+  vikingScenario:
   - {fileID: 1062005065652150, guid: 7b3c4fe640b87824dab4c922e53fcce3, type: 2}
   - {fileID: 1577449551549804, guid: 4b70c4e451e769e4aa89542835b1e263, type: 2}
   inimigos:
@@ -32974,7 +32988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35, y: -34.969517}
+  m_AnchoredPosition: {x: 175.35, y: -67.04104}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1810923956
@@ -33390,7 +33404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175.35007, y: -174.82758}
+  m_AnchoredPosition: {x: 175.35007, y: -335.1852}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1969417277
