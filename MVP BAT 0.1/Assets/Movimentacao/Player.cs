@@ -192,6 +192,11 @@ public class Player : MonoBehaviour
         Insta.vida -= DanoC;
     }
 
+    private void OnCollisionEnter2D(Collision2D oi)
+    {
+        if (oi.otherCollider.tag == "Boss") CausarDano(10);
+    }
+
     public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
