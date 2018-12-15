@@ -6,13 +6,14 @@ public class MapManager : MonoBehaviour {
 
     // Use this for initialization
 
-    static public MapManager p;
+    static public MapManager MM;
 
     public GameObject background;
     public GameObject player;
     public GameObject paredeV;
     public GameObject paredeH;
     public GameObject portal;
+    public GameObject portalKey;
 
     public bool viking;
 
@@ -50,21 +51,16 @@ public class MapManager : MonoBehaviour {
 
     private void Awake()
     {
-        if(p == null){
-            p = this;
+        if(MM == null){
+            MM = this;
         }else{
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-
-        InitMap();
+        holder = new GameObject("LevelHolder").transform;
     }
     
 
-    public void InitMap()
+    public void InitMap(bool vi)
     {
         holder = new GameObject("LevelHolder").transform;
 
@@ -75,6 +71,10 @@ public class MapManager : MonoBehaviour {
         GameObject instance;
         GameObject cruzamento;
         GameObject floor;
+
+        viking = vi;
+
+        bool genKey = true;
 
         if (viking)
         {
@@ -145,6 +145,12 @@ public class MapManager : MonoBehaviour {
                     {
                         instance = Instantiate(inimigos[(int)Mathf.Round(Random.value * (inimigos.Length - 1))], reference.transform.position + Vector3.back, Quaternion.identity);
                         instance.transform.parent = holder;
+                        if(genKey)
+                        {
+                            instance = Instantiate(portalKey, reference.transform.position + Vector3.back, Quaternion.identity);
+                            instance.transform.parent = holder;
+                            genKey = false;
+                        }
                     }
 
                 }
