@@ -50,12 +50,13 @@ public class GameManager : MonoBehaviour {
         {
             MapManager.MM.InitMap(sequence[s, level]);
             level++;
-            pause.SkillsDel = false;
         }
         else
         {
             pause.SkillsDel = false;
-            SceneManager.LoadScene("TimeLord");
+            SceneManager.LoadSceneAsync("TimeLord");
+            SceneManager.UnloadSceneAsync("CyberPunk");
+            Player.Insta.transform.position = new Vector3(0, -140, 0);
         }
         
     }

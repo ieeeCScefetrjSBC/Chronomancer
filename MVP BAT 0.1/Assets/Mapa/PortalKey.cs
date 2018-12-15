@@ -11,10 +11,6 @@ public class PortalKey : MonoBehaviour {
         {
 
             GameManager.GM.gotPortalKey = true;
-            pause.SkillsDel = false;
-            SceneManager.LoadSceneAsync("TimeLord");
-            SceneManager.UnloadSceneAsync("CyberPunk");
-            Player.Insta.transform.position = new Vector3(0,-140,0);
             Destroy(gameObject);
 
 
