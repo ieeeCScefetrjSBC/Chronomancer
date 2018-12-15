@@ -11951,6 +11951,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 610119738}
   m_CullTransparentMesh: 0
+--- !u!1 &633952581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1606425866276584, guid: 90cdf31710d90b74cb8e0ae4efccc955,
+    type: 2}
+  m_PrefabInternal: {fileID: 1490229676}
 --- !u!1 &649018140
 GameObject:
   m_ObjectHideFlags: 0
@@ -30535,8 +30540,8 @@ MonoBehaviour:
   - {fileID: 1328281168574326, guid: 0bd20af2e36c72c498a5e9ada992a80d, type: 2}
   vikingBackgroundColor:
     serializedVersion: 2
-    rgba: 4279053143
-  vikingFloor: {fileID: 858753755}
+    rgba: 4281297227
+  vikingFloor: {fileID: 633952581}
   vikingCruzamento: {fileID: 567325173}
   vikingScenario:
   - {fileID: 1062005065652150, guid: 7b3c4fe640b87824dab4c922e53fcce3, type: 2}
