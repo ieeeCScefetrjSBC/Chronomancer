@@ -1155,8 +1155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345.68668, y: -358.6889}
-  m_SizeDelta: {x: 533.37335, y: 63.984203}
+  m_AnchoredPosition: {x: 346.0062, y: -358.6889}
+  m_SizeDelta: {x: 534.0124, y: 63.984203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468457955
 MonoBehaviour:
@@ -1479,8 +1479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345.68668, y: -223.3405}
-  m_SizeDelta: {x: 533.37335, y: 63.984203}
+  m_AnchoredPosition: {x: 346.0062, y: -223.3405}
+  m_SizeDelta: {x: 534.0124, y: 63.984203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603114634
 MonoBehaviour:
@@ -6519,7 +6519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.9999809}
+  m_AnchoredPosition: {x: 0, y: -1.999979}
   m_SizeDelta: {x: 0, y: 0.31000137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885680931
@@ -6596,8 +6596,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345.68668, y: -155.6663}
-  m_SizeDelta: {x: 533.37335, y: 63.984203}
+  m_AnchoredPosition: {x: 346.0062, y: -155.6663}
+  m_SizeDelta: {x: 534.0124, y: 63.984203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886332906
 MonoBehaviour:
@@ -6840,8 +6840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345.68668, y: -87.9921}
-  m_SizeDelta: {x: 533.37335, y: 63.984203}
+  m_AnchoredPosition: {x: 346.0062, y: -87.9921}
+  m_SizeDelta: {x: 534.0124, y: 63.984203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081814470
 MonoBehaviour:
@@ -6883,7 +6883,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1081814473}
-        m_MethodName: LoadByIndex
+        m_MethodName: LoadAdd
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6896,6 +6896,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1919581128}
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2090169912}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6986,8 +6997,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345.68668, y: -291.0147}
-  m_SizeDelta: {x: 533.37335, y: 63.984203}
+  m_AnchoredPosition: {x: 346.0062, y: -291.0147}
+  m_SizeDelta: {x: 534.0124, y: 63.984203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085526258
 MonoBehaviour:
@@ -10000,6 +10011,7 @@ GameObject:
   - component: {fileID: 2090169910}
   - component: {fileID: 2090169909}
   - component: {fileID: 2090169908}
+  - component: {fileID: 2090169912}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -10087,6 +10099,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &2090169912
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2090169907}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2e820614649e8d48944355472d8f80a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2104881992
 MonoBehaviour:
   m_ObjectHideFlags: 0
