@@ -46,7 +46,7 @@ public class Inimigo : MonoBehaviour {
 
     public void descongelar2()
     {
-        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         foreach (Transform t in transform)
         {
             if (t.tag == "Gelo")
