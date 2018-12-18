@@ -20,7 +20,7 @@ public class Deah : MonoBehaviour {
         
         if (morte) d.gameObject.SetActive(true);
         else
-        {
+        { 
 
         }
 
