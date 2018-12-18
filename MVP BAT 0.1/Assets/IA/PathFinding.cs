@@ -192,7 +192,7 @@ public class PathFinding : MonoBehaviour {
         return Vector2Int.Distance(node, goal);
     }
 
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (UnityEditor.Selection.activeGameObject != gameObject) return;
@@ -210,4 +210,6 @@ public class PathFinding : MonoBehaviour {
         }
 
     }
+
+#endif
 }

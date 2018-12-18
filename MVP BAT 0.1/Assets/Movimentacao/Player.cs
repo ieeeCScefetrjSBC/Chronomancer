@@ -123,10 +123,11 @@ public class Player : MonoBehaviour
             }
             }
         
-        rb.velocity += new Vector2(x, y);
+        var asr = new Vector2(x, y);
+        rb.velocity += asr;
 
-        if (Mathf.Approximately(0,v)) anim.SetInteger("Velocity", 0);
-        else if(v<= maxVel) anim.SetInteger("Velocity", 1); //Ajeitar '''''''''''''''''''''''''''''''
+        if (Mathf.Approximately(0,asr.magnitude)) anim.SetInteger("Velocity", 0);
+        else if(asr.magnitude<= maxVel*1.5f) anim.SetInteger("Velocity", 1); //Ajeitar '''''''''''''''''''''''''''''''
         else anim.SetInteger("Velocity", 2);
 
         Vector3 a = (GetWorldPositionOnPlane(Input.mousePosition, 0) - transform.position);
