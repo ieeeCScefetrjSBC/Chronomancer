@@ -25,7 +25,9 @@ public class Audiomanagerscript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
     }
-        public static void PlaySound (string clip)
+    public static void PlaySound(string clip)
+    {
+        if (audioSrc != null)
         {
             switch (clip)
             {
@@ -47,11 +49,12 @@ public class Audiomanagerscript : MonoBehaviour {
                 case "meteor":
                     audioSrc.PlayOneShot(meteorsound);
                     break;
-            case "pause":
-                audioSrc.PlayOneShot(pausesound);
-                break;
+                case "pause":
+                    audioSrc.PlayOneShot(pausesound);
+                    break;
+            }
         }
-        }
+    }
 		
 	}
 

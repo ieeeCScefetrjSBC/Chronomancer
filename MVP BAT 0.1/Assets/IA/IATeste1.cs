@@ -16,6 +16,9 @@ public class IATeste1 : Inimigo {
     [SerializeField]
     private float skill1TellTime;
 
+    [SerializeField]
+    private float DanoSkill;
+
     private SkillUser skills;
     private Animator anim;
     private bool skill1Able = true;
@@ -93,19 +96,19 @@ public class IATeste1 : Inimigo {
             switch (skillIdentifier)
             {
                 case (1):
-                    skills.Ice_Block((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    skills.Ice_Block((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, DanoSkill, false);
                     break;
                 case (2):
-                    skills.Chain_Lightning((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    skills.Chain_Lightning((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, DanoSkill, false);
                     break;
                 case (3):
-                    skills.Crippling_Oil((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    skills.Crippling_Oil((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, DanoSkill, false);
                     break;
                 case (4):
-                    skills.Meteor((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    skills.Meteor((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, DanoSkill, false);
                     break;
                 case (5):
-                    skills.Heavy_Rain((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, 10, false);
+                    skills.Heavy_Rain((Vector2)transform.position + dirF.normalized, dirF.normalized, 3, DanoSkill, false);
                     break;
             }
 

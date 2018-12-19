@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         skills = GetComponent<SkillUser>();
 
         //skill1 = skills.Heavy_Rain;
-        //skill3 = skills.Chain_Lightning;
+        ///if(Tutorial) skill1 = skills.Chain_Lightning;
         //skill2 = skills.Meteor;
 
         MapaCyber mc = FindObjectOfType<MapaCyber>();
