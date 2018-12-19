@@ -22,7 +22,6 @@ public class SkillSlot : MonoBehaviour {
 
     public void SetFill(float fill)
     {
-        Debug.Log(fill);
         image.fillAmount = fill;
     }
 	
