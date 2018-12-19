@@ -84,7 +84,6 @@ public class MapManager : MonoBehaviour {
         for (int zifoda = 0; zifoda < eSpawn.Length; zifoda++) eSpawn[zifoda] = false;
         for (int z = 0; z < eSpawn.Length * inimigosPercentual; z++)
         {
-            Debug.Log("CARALHO");
             eSpawn[z] = true;
         }
 
