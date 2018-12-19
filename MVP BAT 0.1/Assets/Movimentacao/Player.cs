@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public static Vector3 position;
     public static Vector3 vel;
 
+    public bool Tutorial;
+
     public float vida;
     public float Vel;
     public float RunVel;
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         if (Insta == null) Insta = this;
-        DontDestroyOnLoad(this);
+        if(!Tutorial) DontDestroyOnLoad(this);
         SkillUser.Lord();
     }
 
