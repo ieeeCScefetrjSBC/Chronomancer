@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuSkills : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class MenuSkills : MonoBehaviour {
     public float Dano;
     public float tempoDuracao;
     public float tempoCoolDown;
+    
 
     MenuSkills ocupado;
     Player.SKILL skillAtual;
@@ -94,6 +96,8 @@ public class MenuSkills : MonoBehaviour {
                     Player.Insta.skill1Dura = tempoDuracao;
                
                     Player.skill1 = skillAtual;
+
+                    Player.Insta.slot1.SetSkillData(GetComponent<Image>().sprite, n);
                 }
                 else if (n == 1)
                 {
@@ -101,6 +105,8 @@ public class MenuSkills : MonoBehaviour {
                     Player.Insta.skill2Dano = Dano;
                     Player.Insta.skill2Dura = tempoDuracao;
                     Player.skill2 = skillAtual;
+
+                    Player.Insta.slot2.SetSkillData(GetComponent<Image>().sprite, n);
                 }
                 else if (n == 2)
                 {

@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     private SpriteRenderer spr;
     private SkillUser skills;
 
+    public SkillSlot slot1;
+    public SkillSlot slot2;
+
     public delegate void SKILL(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl);
 
     public static SKILL skill1;
@@ -72,8 +75,15 @@ public class Player : MonoBehaviour
             Deah.deah(true);
         }
 
+        UpdateCooldownUI();
 
 
+    }
+
+    void UpdateCooldownUI()
+    {
+        slot1.SetFill(1f - ((skill1cdt + skill1CoolDown - Time.time) / skill1CoolDown));
+        slot2.SetFill(1f - ((skill2cdt + skill2CoolDown - Time.time) / skill2CoolDown));
     }
 
     void FixedUpdate()

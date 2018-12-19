@@ -6381,6 +6381,8 @@ MonoBehaviour:
   skill1CoolDown: 2
   skill2CoolDown: 2
   skill3CoolDown: 1
+  slot1: {fileID: 968906977}
+  slot2: {fileID: 614830207}
 --- !u!212 &452902510
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12305,7 +12307,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -12341,6 +12343,7 @@ GameObject:
   - component: {fileID: 614830204}
   - component: {fileID: 614830206}
   - component: {fileID: 614830205}
+  - component: {fileID: 614830207}
   m_Layer: 5
   m_Name: Skill (1)
   m_TagString: Untagged
@@ -12386,13 +12389,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 661ff4817f8f86044a0f310691cf311d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
 --- !u!222 &614830206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12400,6 +12403,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 614830203}
   m_CullTransparentMesh: 0
+--- !u!114 &614830207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614830203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911c339f8fed78a46b58c0b19bc2854f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &633952581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1606425866276584, guid: 90cdf31710d90b74cb8e0ae4efccc955,
@@ -18273,6 +18287,7 @@ GameObject:
   - component: {fileID: 968906974}
   - component: {fileID: 968906976}
   - component: {fileID: 968906975}
+  - component: {fileID: 968906977}
   m_Layer: 5
   m_Name: Skill
   m_TagString: Untagged
@@ -18318,13 +18333,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 661ff4817f8f86044a0f310691cf311d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
 --- !u!222 &968906976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18332,6 +18347,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968906973}
   m_CullTransparentMesh: 0
+--- !u!114 &968906977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 968906973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911c339f8fed78a46b58c0b19bc2854f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &991875478
 GameObject:
   m_ObjectHideFlags: 0
@@ -24145,7 +24171,7 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -25458,7 +25484,7 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
