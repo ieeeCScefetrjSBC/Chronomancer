@@ -10,13 +10,22 @@ public class Selecttheinput : MonoBehaviour {
     private bool buttonSelected;
 
     public GameObject cy, vi;
+    public bool ddol;
 
     // Use this for initialization
     void Start () {
         if (cy != null && vi != null)
         {
-            if (Random.Range(0, 2) == 1) vi.SetActive(false);
-            else cy.SetActive(false);
+            if (Random.Range(0, 2) == 1)
+            {
+                vi.SetActive(false);
+                if (ddol) DontDestroyOnLoad(cy);
+            }
+            else
+            {
+                cy.SetActive(false);
+                if (ddol) DontDestroyOnLoad(vi);
+            }
         }
     }
 	

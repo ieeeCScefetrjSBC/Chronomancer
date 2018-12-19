@@ -16,12 +16,11 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
         Men = SceneManager.GetActiveScene();
-        Invoke("Unload", 5);
+        Invoke("Unload", 8.5f);
     }
 
     public void Unload()
     {
         SceneManager.UnloadSceneAsync(Men);
-        Invoke("Unload", 5);
     }
 }
