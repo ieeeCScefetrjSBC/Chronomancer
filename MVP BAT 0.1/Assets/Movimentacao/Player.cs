@@ -54,9 +54,9 @@ public class Player : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         skills = GetComponent<SkillUser>();
 
-        skill1 = skills.Heavy_Rain;
-        skill3 = skills.Chain_Lightning;
-        skill2 = skills.Meteor;
+        //skill1 = skills.Heavy_Rain;
+        //skill3 = skills.Chain_Lightning;
+        //skill2 = skills.Meteor;
 
         MapaCyber mc = FindObjectOfType<MapaCyber>();
         if (mc != null) transform.position = MapaCyber.sala[0].transform.position + Vector3.back;

@@ -12,6 +12,7 @@ public class SkillUser : MonoBehaviour {
     private static GameObject AreaMeteorG;
 
     private static GameObject RainEffectG;
+    private static GameObject ChainlG;
 
     [SerializeField]
     private GameObject Gelo;
@@ -25,6 +26,8 @@ public class SkillUser : MonoBehaviour {
     private GameObject AreaMeteor;
     [SerializeField]
     private GameObject RainEffect;
+    [SerializeField]
+    private GameObject Chainl;
 
     public static Player.SKILL Ice_Block_del;
     public static Player.SKILL Chain_Lightning_del;
@@ -49,12 +52,18 @@ public class SkillUser : MonoBehaviour {
         if (AreaRain != null && AreaRainG == null) AreaRainG = AreaRain;
         if (AreaMeteor != null && AreaMeteorG == null) AreaMeteorG = AreaMeteor;
         if (RainEffect != null && RainEffectG == null) RainEffectG = RainEffect;
+        if (Chainl != null && ChainlG == null) ChainlG = Chainl;
     }
 
     void Start(){
         if (Gelo == null) Gelo = GeloG;
         if (Oleo == null) Oleo = OleoG;
         if (AreaIceBlock == null) AreaIceBlock = AreaIceBlockG;
+
+        if (AreaRain == null) AreaRain = AreaRainG;
+        if (AreaMeteor == null) AreaMeteor = AreaMeteorG;
+        if (RainEffect == null) RainEffect = RainEffectG;
+        if (Chainl == null) Chainl = ChainlG;
 
         if (Ice_Block_del == null && GetComponent<Player>() != null){
             Ice_Block_del = Ice_Block;
@@ -106,8 +115,8 @@ public class SkillUser : MonoBehaviour {
 
     public void Chain_Lightning(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
-        RaycastHit2D r = Physics2D.Raycast(pos, dir);
-        //Debug.Log(r.transform.name);
+        RaycastHit2D r = Physics2D.Raycast(pos + 5*dir, dir);
+        Debug.Log(r.transform.name);
         if (r.transform != null)
         {
             Quimica qui = r.transform.GetComponent<Quimica>();
@@ -119,21 +128,25 @@ public class SkillUser : MonoBehaviour {
             if (i != null)
             {
                 i.vida -= dano;
+                
             }
             Audiomanagerscript.PlaySound("chain");
         }
+
+        var cl = Instantiate(Chainl, transform.position,Quaternion.Euler(Mathf.Rad2Deg * -Mathf.Atan2(dir.y, dir.x), 90,0));
+        Destroy(cl, tempo);
     }
 
     public void Crippling_Oil(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
         
-        Instantiate(OleoG, transform.position + 15*((Vector3)dir), Quaternion.identity);
+        Instantiate(OleoG, transform.position + 15*((Vector3)dir) + Vector3.back*2, Quaternion.identity);
         Audiomanagerscript.PlaySound("oil");
     }
 
     public void Meteor(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
-        GameObject g = Instantiate(AreaMeteorG, transform.position + 15 * ((Vector3)dir), Quaternion.identity);
+        GameObject g = Instantiate(AreaMeteorG, transform.position + 15 * ((Vector3)dir) + Vector3.back * 2, Quaternion.identity);
         MeteorRegion r = g.GetComponent<MeteorRegion>();
         r.dano = dano;
         r.pl = pl;
@@ -149,8 +162,6 @@ public class SkillUser : MonoBehaviour {
         r.dano = dano;
         r.pl = pl;
         r.Invoke("Finish", tempo);
-        GameObject e = Instantiate(RainEffectG, transform.position + 15 * ((Vector3)dir) + new Vector3(0, 5, -10), Quaternion.Euler(-60, 0, 0));
-        Destroy(e, tempo);
         Audiomanagerscript.PlaySound("rain");
     }
 

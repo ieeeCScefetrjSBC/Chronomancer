@@ -32,7 +32,7 @@ public class RainRegion : MonoBehaviour {
         }
     }
     
-    private void OnTriggerEnter2D (Collider2D ou)
+    private void OnTriggerStay2D (Collider2D ou)
     {
        
         if (ou.transform != null)
@@ -42,7 +42,7 @@ public class RainRegion : MonoBehaviour {
                 Inimigo i = ou.transform.gameObject.GetComponent<Inimigo>();
                 if (i != null)
                 {
-                    i.vida -= dano;//Causar Dano
+                    i.vida -= dano*Time.deltaTime;//Causar Dano
                 }
             }
             else
@@ -50,7 +50,7 @@ public class RainRegion : MonoBehaviour {
                 Player i = ou.transform.gameObject.GetComponent<Player>();
                 if (i != null)
                 {
-                    Player.CausarDano(dano);//Causar Dano
+                    Player.CausarDano(dano * Time.deltaTime);//Causar Dano
                 }
             }
             
