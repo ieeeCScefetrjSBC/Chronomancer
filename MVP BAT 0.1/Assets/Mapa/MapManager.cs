@@ -8,6 +8,9 @@ public class MapManager : MonoBehaviour {
 
     static public MapManager MM;
 
+    [Range(.05f, 1f)]
+    public float inimigosPercentual;
+
     public GameObject background;
     public GameObject player;
     public GameObject paredeV;
@@ -21,13 +24,13 @@ public class MapManager : MonoBehaviour {
     public GameObject cyberpunkFloor;
     public GameObject cyberpunkCruzamento;
     public GameObject[] cyberpunkScenario;
+    public GameObject[] cyberpunkInimigos;
 
     public Color32 vikingBackgroundColor;
     public GameObject vikingFloor;
     public GameObject vikingCruzamento;
     public GameObject[] vikingScenario;
-
-    public GameObject[] inimigos;
+    public GameObject[] vikingInimigos;
     
     public Tunnelers.Config config;
 
@@ -76,6 +79,17 @@ public class MapManager : MonoBehaviour {
 
         bool genKey = true;
 
+        bool[] eSpawn = new bool[map.tCount];
+
+        for (int zifoda = 0; zifoda < eSpawn.Length; zifoda++) eSpawn[zifoda] = false;
+        for (int z = 0; z < eSpawn.Length * inimigosPercentual; z++)
+        {
+            Debug.Log("CARALHO");
+            eSpawn[z] = true;
+        }
+
+        ShuffleArray(ref eSpawn);
+
         if (viking)
         {
             background.GetComponent<SpriteRenderer>().color = vikingBackgroundColor;
@@ -88,7 +102,8 @@ public class MapManager : MonoBehaviour {
             floor = cyberpunkFloor;
             cruzamento = cyberpunkCruzamento;
         }
-        
+
+        int fodaze = 0;
 
         for (int x = 0; x < config.width; x++) for (int y = 0; y < config.height; y++) if (map.map[x, y] == 2)
                 {
@@ -140,10 +155,12 @@ public class MapManager : MonoBehaviour {
                         instance = Instantiate(paredeH, reference.transform.position + Vector3.back + Vector3.down * (40 / 2), Quaternion.identity);
                         instance.transform.parent = holder;
                     }
+                    
 
-                    if (Random.value < 0.05f)
+                    if (eSpawn[fodaze] && (x != map.begin.x || y != map.begin.y))
                     {
-                        instance = Instantiate(inimigos[(int)Mathf.Round(Random.value * (inimigos.Length - 1))], reference.transform.position + Vector3.back, Quaternion.identity);
+                        GameObject inimigo = (viking ? vikingInimigos[Random.Range(0, vikingInimigos.Length)] : cyberpunkInimigos[Random.Range(0, cyberpunkInimigos.Length)]);
+                        instance = Instantiate(inimigo, reference.transform.position + Vector3.back, Quaternion.identity);
                         instance.transform.parent = holder;
                         if(genKey)
                         {
@@ -152,6 +169,8 @@ public class MapManager : MonoBehaviour {
                             genKey = false;
                         }
                     }
+
+                    fodaze++;
 
                 }
                 else
@@ -242,4 +261,18 @@ public class MapManager : MonoBehaviour {
         }
     }
 
+
+    void ShuffleArray(ref bool[] ts)
+    {
+        var count = ts.Length;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = UnityEngine.Random.Range(i, count);
+            var tmp = ts[i];
+            ts[i] = ts[r];
+            ts[r] = tmp;
+        }
+    }
 }
+

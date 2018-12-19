@@ -380,6 +380,7 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   cy: {fileID: 0}
   vi: {fileID: 0}
+  ddol: 0
 --- !u!114 &91617791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +646,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &146224479 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1852269609377634, guid: a03feecab2b4f6e418ba6e8e6500731f,
+    type: 2}
+  m_PrefabInternal: {fileID: 321272707}
 --- !u!1 &212296732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1492,7 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   cy: {fileID: 0}
   vi: {fileID: 0}
+  ddol: 0
 --- !u!114 &446448460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31416,6 +31423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e664e80e7cd63004ab54e5982c2d15a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inimigosPercentual: 0.3
   background: {fileID: 263654352}
   player: {fileID: 452902501}
   paredeV: {fileID: 1345467018}
@@ -31431,6 +31439,8 @@ MonoBehaviour:
   cyberpunkScenario:
   - {fileID: 1485108531029326, guid: 058d886f9f29c754e82816ad96cf9634, type: 2}
   - {fileID: 1328281168574326, guid: 0bd20af2e36c72c498a5e9ada992a80d, type: 2}
+  cyberpunkInimigos:
+  - {fileID: 1672797765}
   vikingBackgroundColor:
     serializedVersion: 2
     rgba: 4281297227
@@ -31439,8 +31449,8 @@ MonoBehaviour:
   vikingScenario:
   - {fileID: 1062005065652150, guid: 7b3c4fe640b87824dab4c922e53fcce3, type: 2}
   - {fileID: 1577449551549804, guid: 4b70c4e451e769e4aa89542835b1e263, type: 2}
-  inimigos:
-  - {fileID: 1655060002398898, guid: e53f7974e50b57c4084a4b20ebf0e04e, type: 2}
+  vikingInimigos:
+  - {fileID: 146224479}
   config:
     width: 30
     height: 30
@@ -31858,6 +31868,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1634080736}
   m_CullTransparentMesh: 0
+--- !u!1 &1672797765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1655060002398898, guid: e53f7974e50b57c4084a4b20ebf0e04e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1113038157}
 --- !u!1 &1672821997
 GameObject:
   m_ObjectHideFlags: 0
@@ -33024,6 +33039,7 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   cy: {fileID: 0}
   vi: {fileID: 0}
+  ddol: 0
 --- !u!114 &1951913048
 MonoBehaviour:
   m_ObjectHideFlags: 0

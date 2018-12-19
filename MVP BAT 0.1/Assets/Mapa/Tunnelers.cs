@@ -31,7 +31,7 @@ public class Tunnelers {
     public Vector2Int begin;
     public Vector2Int end;
     Vector2Int n;
-    int tCount;
+    public int tCount;
 
     public void Generate()
     {
