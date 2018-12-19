@@ -152,9 +152,9 @@ MonoBehaviour:
   tempSegura: {x: 0, y: 100}
   danoEletricidade: 5
   danoAgua: 1
-  vel: 5
+  vel: 15
   distSegue: {x: 15, y: 110}
-  dano: 10
+  dano: 15
   attackTime: 5
   callTime: 1.5
 --- !u!114 &114225249746715236

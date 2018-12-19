@@ -152,11 +152,12 @@ MonoBehaviour:
   tempSegura: {x: -100, y: 70}
   danoEletricidade: 0
   danoAgua: 0
-  vel: 5
+  vel: 15
   distSegue: {x: 15, y: 110}
-  skillIdentifier: 1
+  skillIdentifier: 4
   skill1Time: 5
   skill1TellTime: 0.6
+  DanoSkill: 20
 --- !u!114 &114886709200317036
 MonoBehaviour:
   m_ObjectHideFlags: 1

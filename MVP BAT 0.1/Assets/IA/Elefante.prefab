@@ -172,7 +172,7 @@ MonoBehaviour:
   danoAgua: 1
   vel: 5
   distSegue: {x: 15, y: 110}
-  dano: 10
+  dano: 35
   attackTime: 5
   callTime: 1.5
 --- !u!198 &198656619978352000
