@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START CONVERSATION
+  m_Text: START TUTORIAL
 --- !u!222 &148605805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -623,6 +623,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 114404752157198034, guid: 95e817f0a4ad23b49af0b46179ac1fda, type: 2}
     value: {fileID: 1111878051}
+  - key: {fileID: 114776834571940008, guid: 95e817f0a4ad23b49af0b46179ac1fda, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1330138881
@@ -1083,8 +1085,23 @@ MonoBehaviour:
   dialogue:
     name: Dr. Pisch Tolla
     sentences:
-    - " Que bom que voc\xEA est\xE1 bem, Nilce. O que aconteceu foi um cisalhamento
+    - "Que bom que voc\xEA est\xE1 bem, Nilce. O que aconteceu foi um cisalhamento
       na estrutura do tecido espa\xE7o-temporal"
-    - "ocasionando um deslocamento qu\xE2ntico for\xE7ado e, consequentemente, uma
+    - "Ocasionando um deslocamento qu\xE2ntico for\xE7ado e, consequentemente, uma
       fissura temporal de magnitude Sigma... "
     - "Pensei que s\xF3 (zzzzzzz) mas s\xF3 seria poss\xEDvel se (zzzzzz)...\r\n"
+    - "Basicamente, voc\xEA viajou no tempo. Mas nem tudo t\xE1 perdido. De acordo
+      com meus c\xE1lculos... (zzzzzzz)... Ah! Sim!\r\n"
+    - "A TM-4560, o meu beb\xEA que voc\xEA quebrou, te trouxe e, consequentemente,
+      te trar\xE1 de volta para casa. Mas, com uma fissura de magnitude Sigma, ele
+      deve ter se partido em no m\xEDnimo QUATRO peda\xE7os.\r\n"
+    - "Seu objetivo \xE9 procurar em qual malha temporal esses peda\xE7os foram parar,
+      pegar esses peda\xE7os, trazer eles para c\xE1 e consertar o meu beb\xEA para
+      eu ter meus dois beb\xEAs de volta.\r \n\n"
+    - '...'
+    - "N\xE3o \xE9 estranho eu cham\xE1-las de beb\xEA. Voc\xEA que \xE9 estranha!"
+    - Tome, pegue a minha Power Glove para se defender, vou gastar um pouco da minha
+      Energia Temporal para atravessar ela pela fissura.
+    - "Ela ficou danificada durante a explos\xE3o ent\xE3o voc\xEA precisa escolher
+      TR\xCAS habilidades para levar com voc\xEA, entretanto voc\xEA s\xF3 pode usar
+      DUAS. Escolha com sabedoria.  Boa sorte, Nilcinha. Confio em voc\xEA.\r\n"
