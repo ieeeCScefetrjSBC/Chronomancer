@@ -37,12 +37,21 @@ public class GameManager : MonoBehaviour {
         s = Random.Range(0, 2);
         NextLevel();
 
-        if (s == 1) vi.SetActive(false);
-        else cy.SetActive(false);
+        
     }
 
     public void NextLevel()
     {
+        if (sequence[s, level])
+        {
+            vi.SetActive(true);
+            cy.SetActive(false);
+        }
+        else {
+            vi.SetActive(false);
+            cy.SetActive(true);
+        }
+
         if (!gotPortalKey)
         {
             Debug.Log("U DoNt HaVe KeY IdIoT!");
