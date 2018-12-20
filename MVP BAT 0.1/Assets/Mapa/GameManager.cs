@@ -42,15 +42,7 @@ public class GameManager : MonoBehaviour {
 
     public void NextLevel()
     {
-        if (sequence[s, level])
-        {
-            vi.SetActive(true);
-            cy.SetActive(false);
-        }
-        else {
-            vi.SetActive(false);
-            cy.SetActive(true);
-        }
+        
 
         if (!gotPortalKey)
         {
@@ -62,6 +54,18 @@ public class GameManager : MonoBehaviour {
         if(level < 4)
         {
             MapManager.MM.InitMap(sequence[s, level]);
+            
+            if (sequence[s, level])
+            {
+                vi.SetActive(true);
+                cy.SetActive(false);
+            }
+            else
+            {
+                vi.SetActive(false);
+                cy.SetActive(true);
+            }
+
             level++;
         }
         else
@@ -73,5 +77,14 @@ public class GameManager : MonoBehaviour {
         }
         
     }
-	
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.PageUp))
+        {
+            gotPortalKey = true;
+            NextLevel();
+        }
+    }
+
 }

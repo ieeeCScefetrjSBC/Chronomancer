@@ -242,7 +242,7 @@ public class MapManager : MonoBehaviour {
 
                 }
 
-        player.transform.position = (Vector2)map.begin * 40;
+        Player.Insta.transform.position = (Vector2)map.begin * 40;
         portal.transform.position = (Vector3)(Vector2)map.end * 40 + 7 * Vector3.back;
 
         PathFinding.instance.InitMap(new Vector2(config.width * 40, config.height * 40));

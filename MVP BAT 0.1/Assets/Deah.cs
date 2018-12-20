@@ -21,7 +21,7 @@ public class Deah : MonoBehaviour {
         if (morte) d.gameObject.SetActive(true);
         else
         { 
-
+            v.gameObject.SetActive(true);
         }
 
     }
@@ -37,7 +37,11 @@ public class Deah : MonoBehaviour {
 
         }
 
-        if (Input.anyKey && !more) SceneManager.LoadScene("Credits");
+        if (Input.GetKey(KeyCode.Return) && !more)
+        {
+            Destroy(Player.Insta.gameObject, 1f);
+            SceneManager.LoadScene("Credits");
+        }
     }
 
 }
