@@ -8133,12 +8133,15 @@ MonoBehaviour:
   TimeLord: 1
   timeDilation: 2
   watchNmuber: 1
-  enemieNumber: 1
+  enemieNumber: 2
   enemies:
-  - {fileID: 1246259194200378, guid: f722a069a299ef04393282eb7319c054, type: 2}
-  - {fileID: 1246259194200378, guid: f722a069a299ef04393282eb7319c054, type: 2}
+  - {fileID: 1542350134104212, guid: 4ec17d5d19209a044b11fc3016f2c9c3, type: 2}
+  - {fileID: 1655060002398898, guid: e53f7974e50b57c4084a4b20ebf0e04e, type: 2}
+  - {fileID: 1047360418880254, guid: 2ccf6eb755a15704c96e360f25e4edec, type: 2}
+  - {fileID: 1852269609377634, guid: a03feecab2b4f6e418ba6e8e6500731f, type: 2}
   watches:
   - {fileID: 1786293335550148, guid: 02f0a46d0d88e484083a09ab22e5b2f6, type: 2}
+  - {fileID: 1246259194200378, guid: f722a069a299ef04393282eb7319c054, type: 2}
   CyberPunk: 0
   centerArena: {fileID: 0}
   positionsMovement: []
