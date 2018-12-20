@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     {
         if (Insta == null) Insta = this;
         if(!Tutorial) DontDestroyOnLoad(this);
-        SkillUser.Lord();
+        if (!Tutorial) SkillUser.Lord();
     }
 
     void Start () {

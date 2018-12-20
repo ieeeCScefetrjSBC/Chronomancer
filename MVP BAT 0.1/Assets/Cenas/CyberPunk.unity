@@ -26059,9 +26059,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 0
   skillIdentifier: 2
-  Dano: 7
+  Dano: 10
   tempoDuracao: 2
-  tempoCoolDown: 0.4
+  tempoCoolDown: 0.55
 --- !u!114 &1512308139
 MonoBehaviour:
   m_ObjectHideFlags: 0

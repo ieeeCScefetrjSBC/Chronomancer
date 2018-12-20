@@ -116,7 +116,7 @@ public class SkillUser : MonoBehaviour {
     public void Chain_Lightning(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl)
     {
         RaycastHit2D r = Physics2D.Raycast(pos + 5*dir, dir);
-        Debug.Log(r.transform.name);
+        
         if (r.transform != null)
         {
             Quimica qui = r.transform.GetComponent<Quimica>();
