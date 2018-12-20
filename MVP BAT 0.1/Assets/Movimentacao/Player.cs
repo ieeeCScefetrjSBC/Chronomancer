@@ -206,9 +206,9 @@ public class Player : MonoBehaviour
         Insta.vida -= DanoC;
     }
 
-    private void OnCollisionEnter2D(Collision2D oi)
+    private void OnCollisionStay2D(Collision2D oi)
     {
-        if (oi.otherCollider.tag == "Boss") CausarDano(10);
+        if (oi.collider.tag == "Boss") CausarDano(30*Time.deltaTime);
     }
 
     public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
