@@ -97,7 +97,7 @@ public class MenuSkills : MonoBehaviour {
                
                     Player.skill1 = skillAtual;
 
-                    Player.Insta.slot1.SetSkillData(GetComponent<Image>().sprite);
+                    SkillSlot.SetSkillData(GetComponent<Image>().sprite, true);
                 }
                 else if (n == 1)
                 {
@@ -106,7 +106,7 @@ public class MenuSkills : MonoBehaviour {
                     Player.Insta.skill2Dura = tempoDuracao;
                     Player.skill2 = skillAtual;
 
-                    Player.Insta.slot2.SetSkillData(GetComponent<Image>().sprite);
+                    SkillSlot.SetSkillData(GetComponent<Image>().sprite, false);
                 }
                 else if (n == 2)
                 {

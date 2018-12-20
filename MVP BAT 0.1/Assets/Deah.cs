@@ -28,7 +28,14 @@ public class Deah : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.anyKey && more) SceneManager.LoadScene("CyberPunk") ;
+        if (Input.anyKey && more)
+        {
+            Player.Insta.enabled = true;
+            Player.Insta.vida = 100;
+            pause.SkillsDel = false;
+            SceneManager.LoadScene("CyberPunk");
+
+        }
 
         if (Input.anyKey && !more) SceneManager.LoadScene("Credits");
     }

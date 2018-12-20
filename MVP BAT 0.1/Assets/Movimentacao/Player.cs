@@ -29,15 +29,12 @@ public class Player : MonoBehaviour
     public float skill2CoolDown;
     public float skill3CoolDown;
 
-    private float skill1cdt;
-    private float skill2cdt;
-    private float skill3cdt;
+    public float skill1cdt;
+    public float skill2cdt;
+    public float skill3cdt;
     private Animator anim;
     private SpriteRenderer spr;
     private SkillUser skills;
-
-    public SkillSlot slot1;
-    public SkillSlot slot2;
 
     public delegate void SKILL(Vector2 pos, Vector2 dir, float tempo, float dano, bool pl);
 
@@ -49,8 +46,14 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         if (Insta == null) Insta = this;
-        if(!Tutorial) DontDestroyOnLoad(this);
+        else if (this != Insta)
+        {
+            Destroy(gameObject);
+        }
+        if (!Tutorial) DontDestroyOnLoad(this);
         if (!Tutorial) SkillUser.Lord();
+
+        vida = 100;
     }
 
     void Start () {
@@ -75,18 +78,14 @@ public class Player : MonoBehaviour
         {
             enabled = false;
             Deah.deah(true);
+            
         }
 
-        UpdateCooldownUI();
+        
 
 
     }
 
-    void UpdateCooldownUI()
-    {
-        slot1.SetFill(1f - ((skill1cdt + skill1CoolDown - Time.time) / skill1CoolDown));
-        slot2.SetFill(1f - ((skill2cdt + skill2CoolDown - Time.time) / skill2CoolDown));
-    }
 
     void FixedUpdate()
     {
