@@ -6389,8 +6389,9 @@ MonoBehaviour:
   skill1CoolDown: 2
   skill2CoolDown: 2
   skill3CoolDown: 1
-  slot1: {fileID: 968906977}
-  slot2: {fileID: 614830207}
+  skill1cdt: 0
+  skill2cdt: 0
+  skill3cdt: 0
 --- !u!212 &452902510
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12422,6 +12423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911c339f8fed78a46b58c0b19bc2854f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  s1: 0
 --- !u!1 &633952581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1606425866276584, guid: 90cdf31710d90b74cb8e0ae4efccc955,
@@ -18371,6 +18373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911c339f8fed78a46b58c0b19bc2854f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  s1: 1
 --- !u!1 &991875478
 GameObject:
   m_ObjectHideFlags: 0
